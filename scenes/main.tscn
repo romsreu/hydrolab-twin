@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dp5w7hcf00ryq"]
+
+[ext_resource type="PackedScene" uid="uid://d6yfuwu1aahq" path="res://3d_models/hydro_virtualization_v1.gltf" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://b0msxy5u8ih61" path="res://3d_models/PuertaDerecha.gltf" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b4drjapdr2tbj" path="res://3d_models/PuertaIzquierda.gltf" id="3_tbgi4"]
+
+[node name="Node3D" type="Node3D" unique_id=1631033161]
+
+[node name="Armario" parent="." unique_id=400449095 instance=ExtResource("1_sugp2")]
+transform = Transform3D(3, 0, 0, 0, 3.577464e-08, 3, 0, -3, 3.577464e-08, 0.880075, 0.2616902, 0.8289807)
+
+[node name="PuertaDerecha" parent="." unique_id=1781237719 instance=ExtResource("2_jyhfs")]
+transform = Transform3D(2.75, 0, 0, 0, -1.2020632e-07, 2.75, 0, -2.75, -1.2020632e-07, 1.1929731, 0.41372854, 0.8977659)
+
+[node name="PuertaIzquierda" parent="." unique_id=235105716 instance=ExtResource("3_tbgi4")]
+transform = Transform3D(2.75, 0, 0, 0, 3.2793423e-08, 2.75, 0, -2.75, 3.2793423e-08, 1.188432, 0.3968122, 0.90358615)
