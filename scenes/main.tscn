@@ -5,8 +5,9 @@
 [ext_resource type="Script" uid="uid://dndqw65wecnwa" path="res://scripts/pivot_puerta_derecha.gd" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://0y4yxiv3sua1" path="res://scripts/pivot_puerta_izquierda.gd" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b4drjapdr2tbj" path="res://3d_models/PuertaIzquierda.gltf" id="3_tbgi4"]
-[ext_resource type="Script" uid="uid://c7b83q36qqpbm" path="res://scenes/camera_3d.gd" id="6_o6xl0"]
+[ext_resource type="Script" uid="uid://c7b83q36qqpbm" path="res://scripts/camera_3d.gd" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://b85rqbkg63r3b" path="res://3d_models/ArduinoMega.glb" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://byt1vph8s8tyy" path="res://fan.tscn" id="8_tipki"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
 size = Vector3(1.2136102, 4.611603, 0.1340332)
@@ -66,6 +67,9 @@ light_color = Color(1, 0, 1, 1)
 [node name="UVLightDerInf" type="OmniLight3D" parent="Armario" unique_id=1604543101]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.3785159, 0.5373461, 0.91789687)
 light_color = Color(1, 0, 1, 1)
+
+[node name="Fan" parent="Armario" unique_id=695988897 instance=ExtResource("8_tipki")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, -7.958079e-15, 0, 7.958079e-15, 1.4, 0, 0.9379652, 0.69372106)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1909915838 node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.401125, 3.1696563, 3.8134382)

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://byt1vph8s8tyy"]
+
+[ext_resource type="Script" uid="uid://d0qe0334nca72" path="res://fan.gd" id="1_3ml7w"]
+[ext_resource type="PackedScene" uid="uid://crqquhp2ibmuw" path="res://3d_models/aspas_fan.gltf" id="2_tc01m"]
+[ext_resource type="PackedScene" uid="uid://ca4v8363grd80" path="res://3d_models/socket_fan.gltf" id="3_qoasc"]
+
+[node name="Fan" type="Node3D" unique_id=695988897]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+script = ExtResource("1_3ml7w")
+
+[node name="HelixFan" parent="." unique_id=1372047237 instance=ExtResource("2_tc01m")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+
+[node name="SocketFan" parent="." unique_id=303607765 instance=ExtResource("3_qoasc")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
