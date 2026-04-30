@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hydro Virtualization — Visor 3D</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;700;800&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0c0f;
+    --surface: #111318;
+    --border: #1e2229;
+    --accent: #00d4ff;
+    --accent2: #0066ff;
+    --text: #e8edf5;
+    --muted: #556070;
+    --open-color: #00ff88;
+    --closed-color: #ff4466;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    overflow: hidden;
+  }
+
+  #canvas-container {
+    position: fixed;
+    inset: 0;
+  }
+
+  canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* HUD */
+  .hud {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Top bar */
+  .top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 18px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(10,12,15,0.95), transparent);
+  }
+
+  .logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .logo span { color: var(--muted); }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* Controls panel */
+  .controls-panel {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: all;
+    display: flex;
+    gap: 12px;
+    background: rgba(10, 12, 15, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    backdrop-filter: blur(12px);
+    align-items: center;
+  }
+
+  .door-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 6px;
+    padding: 12px 20px;
+    transition: all 0.2s ease;
+    min-width: 130px;
+  }
+
+  .door-btn:hover { border-color: var(--accent); background: rgba(0,212,255,0.05); }
+  .door-btn.open { border-color: var(--open-color); background: rgba(0,255,136,0.05); }
+
+  .door-btn .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .door-btn .name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .door-btn .status {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--closed-color);
+    transition: background 0.3s;
+  }
+
+  .door-btn.open .dot { background: var(--open-color); }
+
+  .status-text { color: var(--closed-color); transition: color 0.3s; }
+  .door-btn.open .status-text { color: var(--open-color); }
+
+  .divider {
+    width: 1px; height: 60px;
+    background: var(--border);
+    margin: 0 4px;
+  }
+
+  .all-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 6px;
+    padding: 12px 16px;
+    transition: all 0.2s ease;
+    min-width: 90px;
+  }
+  .all-btn:hover { border-color: var(--accent2); background: rgba(0,102,255,0.07); }
+  .all-btn .label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .all-btn .name { font-size: 12px; font-weight: 700; color: var(--text); text-align: center; }
+
+  /* Info bottom right */
+  .info {
+    position: absolute;
+    bottom: 32px;
+    right: 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.9;
+  }
+
+  /* Loading overlay */
+  #loading {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    transition: opacity 0.6s ease;
+  }
+
+  #loading.fade { opacity: 0; pointer-events: none; }
+
+  .load-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--text);
+  }
+
+  .load-title span { color: var(--accent); }
+
+  .load-bar-wrap {
+    width: 240px;
+    height: 2px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .load-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .load-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Tooltip hint */
+  .hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+  }
+  .hint.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="load-title">HYDRO <span>VIRT</span></div>
+  <div class="load-bar-wrap"><div class="load-bar" id="load-bar"></div></div>
+  <div class="load-label" id="load-label">Inicializando escena…</div>
+</div>
+
+<div id="canvas-container"></div>
+
+<div class="hud">
+  <div class="top-bar">
+    <div class="logo">HYDRO<span>/</span>VIRT <span>— v1.0</span></div>
+    <div class="tag">Visor 3D Interactivo</div>
+  </div>
+
+  <div class="hint" id="hint">Click en una puerta o usá los controles</div>
+
+  <div class="controls-panel">
+    <button class="door-btn" id="btn-derecha" onclick="toggleDoor('derecha')">
+      <div class="label">Puerta</div>
+      <div class="name">Derecha</div>
+      <div class="status">
+        <div class="dot"></div>
+        <span class="status-text">CERRADA</span>
+      </div>
+    </button>
+
+    <div class="divider"></div>
+
+    <button class="all-btn" id="btn-all-open" onclick="openAll()">
+      <div class="label">Abrir</div>
+      <div class="name">Ambas</div>
+    </button>
+    <button class="all-btn" id="btn-all-close" onclick="closeAll()">
+      <div class="label">Cerrar</div>
+      <div class="name">Ambas</div>
+    </button>
+
+    <div class="divider"></div>
+
+    <button class="door-btn" id="btn-izquierda" onclick="toggleDoor('izquierda')">
+      <div class="label">Puerta</div>
+      <div class="name">Izquierda</div>
+      <div class="status">
+        <div class="dot"></div>
+        <span class="status-text">CERRADA</span>
+      </div>
+    </button>
+  </div>
+
+  <div class="info">
+    SCROLL — zoom<br>
+    CLICK+DRAG — orbitar<br>
+    CLICK PUERTA — abrir/cerrar
+  </div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.js",
+    "three/examples/jsm/loaders/GLTFLoader.js": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/GLTFLoader.js",
+    "three/examples/jsm/controls/OrbitControls.js": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/controls/OrbitControls.js"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+
+// ─── Scene Setup ────────────────────────────────────────────────────────────
+const container = document.getElementById('canvas-container');
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.2;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+container.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0a0c0f);
+scene.fog = new THREE.Fog(0x0a0c0f, 20, 80);
+
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 200);
+camera.position.set(6, 4, 8);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.07;
+controls.minDistance = 2;
+controls.maxDistance = 30;
+controls.maxPolarAngle = Math.PI / 2 + 0.1;
+controls.target.set(0, 0.5, 0);
+controls.update();
+
+// ─── Lighting ────────────────────────────────────────────────────────────────
+const ambient = new THREE.AmbientLight(0x8899bb, 0.6);
+scene.add(ambient);
+
+const sun = new THREE.DirectionalLight(0xffffff, 1.5);
+sun.position.set(8, 12, 6);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+sun.shadow.camera.near = 0.1;
+sun.shadow.camera.far = 50;
+sun.shadow.camera.left = -8;
+sun.shadow.camera.right = 8;
+sun.shadow.camera.top = 8;
+sun.shadow.camera.bottom = -8;
+scene.add(sun);
+
+const fill = new THREE.DirectionalLight(0x4488ff, 0.4);
+fill.position.set(-5, 3, -5);
+scene.add(fill);
+
+const rim = new THREE.PointLight(0x00d4ff, 0.8, 20);
+rim.position.set(0, 6, -4);
+scene.add(rim);
+
+// Ground plane
+const groundGeo = new THREE.PlaneGeometry(60, 60);
+const groundMat = new THREE.MeshStandardMaterial({
+  color: 0x0d1117,
+  roughness: 0.9,
+  metalness: 0.1
+});
+const ground = new THREE.Mesh(groundGeo, groundMat);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = -1.01;
+ground.receiveShadow = true;
+scene.add(ground);
+
+// Grid
+const grid = new THREE.GridHelper(40, 40, 0x1a2030, 0x111820);
+grid.position.y = -1.0;
+scene.add(grid);
+
+// ─── State ────────────────────────────────────────────────────────────────────
+const doorState = {
+  derecha: { open: false, model: null, pivot: null, animating: false, openAngle: Math.PI / 2 },
+  izquierda: { open: false, model: null, pivot: null, animating: false, openAngle: -Math.PI / 2 }
+};
+
+// ─── Loading ──────────────────────────────────────────────────────────────────
+const loader = new GLTFLoader();
+const loadBar = document.getElementById('load-bar');
+const loadLabel = document.getElementById('load-label');
+let loaded = 0;
+
+function setProgress(pct, label) {
+  loadBar.style.width = pct + '%';
+  loadLabel.textContent = label;
+}
+
+function loadModel(url, label) {
+  return new Promise((resolve, reject) => {
+    loader.load(url,
+      (gltf) => { loaded++; setProgress(loaded * 33, `${label} listo`); resolve(gltf); },
+      (xhr) => {},
+      reject
+    );
+  });
+}
+
+setProgress(5, 'Cargando estructura…');
+
+const [mainGltf, derechaGltf, izquierdaGltf] = await Promise.all([
+  loadModel('hydro_virtualization_v1.gltf', 'Estructura'),
+  loadModel('PuertaDerecha.gltf', 'Puerta derecha'),
+  loadModel('PuertaIzquierda.gltf', 'Puerta izquierda'),
+]);
+
+setProgress(100, 'Listo');
+
+// ─── Add main model ───────────────────────────────────────────────────────────
+const mainModel = mainGltf.scene;
+mainModel.traverse(n => {
+  if (n.isMesh) {
+    n.castShadow = true;
+    n.receiveShadow = true;
+  }
+});
+
+// Auto-center and scale main model
+const mainBox = new THREE.Box3().setFromObject(mainModel);
+const mainSize = mainBox.getSize(new THREE.Vector3());
+const mainCenter = mainBox.getCenter(new THREE.Vector3());
+const maxDim = Math.max(mainSize.x, mainSize.y, mainSize.z);
+const scale = 4 / maxDim;
+
+mainModel.scale.setScalar(scale);
+mainModel.position.set(
+  -mainCenter.x * scale,
+  -mainBox.min.y * scale,
+  -mainCenter.z * scale
+);
+scene.add(mainModel);
+
+// ─── Add door models ──────────────────────────────────────────────────────────
+function addDoor(gltf, key) {
+  const model = gltf.scene;
+  model.traverse(n => {
+    if (n.isMesh) { n.castShadow = true; n.receiveShadow = true; }
+  });
+
+  // Scale doors to match main model
+  model.scale.setScalar(scale);
+
+  // Get bounding box to find hinge edge
+  const box = new THREE.Box3().setFromObject(model);
+  box.min.multiplyScalar(scale);
+  box.max.multiplyScalar(scale);
+
+  // Create pivot group at the hinge position
+  const pivot = new THREE.Group();
+
+  // Position pivot at hinge: right door hinges on its right (+X), left on its left (-X)
+  // Both doors sit at same position as main model
+  model.position.set(
+    -mainCenter.x * scale,
+    -new THREE.Box3().setFromObject(gltf.scene).min.y * scale,
+    -mainCenter.z * scale
+  );
+
+  pivot.add(model);
+  scene.add(pivot);
+
+  doorState[key].model = model;
+  doorState[key].pivot = pivot;
+}
+
+addDoor(derechaGltf, 'derecha');
+addDoor(izquierdaGltf, 'izquierda');
+
+// Fade out loading
+setTimeout(() => {
+  document.getElementById('loading').classList.add('fade');
+  setTimeout(() => document.getElementById('loading').remove(), 700);
+  // Show hint briefly
+  const hint = document.getElementById('hint');
+  hint.classList.add('show');
+  setTimeout(() => hint.classList.remove('show'), 3000);
+}, 400);
+
+// ─── Door animation ───────────────────────────────────────────────────────────
+const ANIM_DURATION = 600; // ms
+
+function animateDoor(key, toOpen) {
+  const state = doorState[key];
+  if (state.animating) return;
+  state.animating = true;
+
+  const pivot = state.pivot;
+  const startAngle = pivot.rotation.y;
+  const endAngle = toOpen ? state.openAngle : 0;
+  const startTime = performance.now();
+
+  function easeInOut(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  function step(now) {
+    const t = Math.min((now - startTime) / ANIM_DURATION, 1);
+    pivot.rotation.y = startAngle + (endAngle - startAngle) * easeInOut(t);
+    if (t < 1) {
+      requestAnimationFrame(step);
+    } else {
+      pivot.rotation.y = endAngle;
+      state.open = toOpen;
+      state.animating = false;
+      updateBtn(key);
+    }
+  }
+  requestAnimationFrame(step);
+  updateBtn(key, toOpen); // optimistic
+}
+
+function updateBtn(key, forceState) {
+  const isOpen = forceState !== undefined ? forceState : doorState[key].open;
+  const btn = document.getElementById(`btn-${key}`);
+  const statusText = btn.querySelector('.status-text');
+  if (isOpen) {
+    btn.classList.add('open');
+    statusText.textContent = 'ABIERTA';
+  } else {
+    btn.classList.remove('open');
+    statusText.textContent = 'CERRADA';
+  }
+}
+
+// ─── Raycasting (click on 3D door) ───────────────────────────────────────────
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+let mouseDownPos = { x: 0, y: 0 };
+
+renderer.domElement.addEventListener('mousedown', e => {
+  mouseDownPos = { x: e.clientX, y: e.clientY };
+});
+
+renderer.domElement.addEventListener('mouseup', e => {
+  const dx = Math.abs(e.clientX - mouseDownPos.x);
+  const dy = Math.abs(e.clientY - mouseDownPos.y);
+  if (dx > 5 || dy > 5) return; // was a drag
+
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+
+  for (const key of ['derecha', 'izquierda']) {
+    const state = doorState[key];
+    if (!state.model) continue;
+    const meshes = [];
+    state.model.traverse(n => { if (n.isMesh) meshes.push(n); });
+    const hits = raycaster.intersectObjects(meshes);
+    if (hits.length > 0) {
+      toggleDoor(key);
+      return;
+    }
+  }
+});
+
+// ─── Global controls (called from onclick) ───────────────────────────────────
+window.toggleDoor = function(key) {
+  const state = doorState[key];
+  animateDoor(key, !state.open);
+};
+
+window.openAll = function() {
+  animateDoor('derecha', true);
+  animateDoor('izquierda', true);
+};
+
+window.closeAll = function() {
+  animateDoor('derecha', false);
+  animateDoor('izquierda', false);
+};
+
+// ─── Resize ───────────────────────────────────────────────────────────────────
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// ─── Render loop ──────────────────────────────────────────────────────────────
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+}
+animate();
+</script>
+
+</body>
+</html>

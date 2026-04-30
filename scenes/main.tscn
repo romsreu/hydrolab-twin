@@ -2,15 +2,84 @@
 
 [ext_resource type="PackedScene" uid="uid://d6yfuwu1aahq" path="res://3d_models/hydro_virtualization_v1.gltf" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://b0msxy5u8ih61" path="res://3d_models/PuertaDerecha.gltf" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://dndqw65wecnwa" path="res://scripts/pivot_puerta_derecha.gd" id="2_tbgi4"]
+[ext_resource type="Script" uid="uid://0y4yxiv3sua1" path="res://scripts/pivot_puerta_izquierda.gd" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b4drjapdr2tbj" path="res://3d_models/PuertaIzquierda.gltf" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://c7b83q36qqpbm" path="res://scenes/camera_3d.gd" id="6_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://b85rqbkg63r3b" path="res://3d_models/ArduinoMega.glb" id="6_tefeu"]
 
-[node name="Node3D" type="Node3D" unique_id=1631033161]
+[sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
+size = Vector3(1.2136102, 4.611603, 0.1340332)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jyhfs"]
+size = Vector3(1.1289864, 4.6061707, 0.15991211)
+
+[sub_resource type="Environment" id="Environment_jyhfs"]
+
+[node name="Main" type="Node3D" unique_id=1631033161]
 
 [node name="Armario" parent="." unique_id=400449095 instance=ExtResource("1_sugp2")]
-transform = Transform3D(3, 0, 0, 0, 3.577464e-08, 3, 0, -3, 3.577464e-08, 0.880075, 0.2616902, 0.8289807)
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, 0.880075, 0.2616902, 0.8289807)
 
-[node name="PuertaDerecha" parent="." unique_id=1781237719 instance=ExtResource("2_jyhfs")]
-transform = Transform3D(2.75, 0, 0, 0, -1.2020632e-07, 2.75, 0, -2.75, -1.2020632e-07, 1.1929731, 0.41372854, 0.8977659)
+[node name="PivotPuertaDerecha" type="Node3D" parent="Armario" unique_id=671319926]
+transform = Transform3D(0.044477627, -1.0658141e-14, 0.33035284, 0.33035284, -1.4570455e-08, -0.044477627, 1.4440181e-08, 0.3333333, -1.9441764e-09, 0.587543, 0.40818995, 0.7913407)
+script = ExtResource("2_tbgi4")
 
-[node name="PuertaIzquierda" parent="." unique_id=235105716 instance=ExtResource("3_tbgi4")]
-transform = Transform3D(2.75, 0, 0, 0, 3.2793423e-08, 2.75, 0, -2.75, 3.2793423e-08, 1.188432, 0.3968122, 0.90358615)
+[node name="InputPuertaDerecha" type="Area3D" parent="Armario/PivotPuertaDerecha" unique_id=1579350233]
+transform = Transform3D(0.12160939, 7.052686e-15, -0.9925778, -7.052689e-15, 0.9999997, 6.24134e-15, 0.9925778, 6.2413665e-15, 0.12160939, 0.018378854, 0, 0.13650823)
+
+[node name="PuertaDerecha" parent="Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=1781237719 instance=ExtResource("2_jyhfs")]
+transform = Transform3D(3.0252051, 0.02596048, 1.1370968e-09, -2.0334323e-16, -1.1996023e-07, 2.7499998, 0.028618338, -2.744247, -1.2020092e-07, -1.7217237, -2.2849503, 1.2870798)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=961987987]
+transform = Transform3D(0.99999326, -7.808585e-22, -1.4901161e-08, 8.271806e-23, 1, 4.7433845e-20, 1.4901161e-08, 1.9142945e-19, 0.99999326, -0.8147738, -0.16442418, 0.19519907)
+shape = SubResource("BoxShape3D_tbgi4")
+debug_color = Color(0.98039216, 0.39607844, 0.5921569, 1)
+
+[node name="PivotPuertaIzquierda" type="Node3D" parent="Armario" unique_id=1804229504]
+transform = Transform3D(-0.331963, 4.0708178e-16, -0.030193506, -0.030193506, -1.4570464e-08, 0.331963, -1.3197999e-09, 0.3333333, 1.4510563e-08, -0.25649258, 0.35386106, 0.84409714)
+script = ExtResource("3_jyhfs")
+
+[node name="InputPuertaIzquierda" type="Area3D" parent="Armario/PivotPuertaIzquierda" unique_id=1034834399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14557368, 0, 0.007733673)
+
+[node name="PuertaIzquierda" parent="Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=235105716 instance=ExtResource("3_tbgi4")]
+transform = Transform3D(3.0115814, 0.23937814, 1.0491297e-08, 1.2807501e-18, -1.198883e-07, 2.7499993, 0.2638499, -2.7322595, -1.1974758e-07, -0.38127142, -2.4429033, 1.1724583)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=249387504]
+transform = Transform3D(1.0000032, 0, 9.685755e-07, -4.9502236e-22, 1, 0, -9.685755e-07, -1.079967e-20, 1.0000032, -0.884735, -0.32121277, -0.095108464)
+shape = SubResource("BoxShape3D_jyhfs")
+debug_color = Color(0.98039216, 0.39607844, 0.5921569, 1)
+
+[node name="UVLightIzqSup" type="OmniLight3D" parent="Armario" unique_id=1960523286]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.049539804, 0.59131014, 1.459144)
+light_color = Color(1, 0, 1, 1)
+
+[node name="UVLightDerSup" type="OmniLight3D" parent="Armario" unique_id=1009743813]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.2811364, 0.58568126, 1.4616464)
+light_color = Color(1, 0, 1, 1)
+
+[node name="UVLightIzqInf" type="OmniLight3D" parent="Armario" unique_id=1714613724]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.052141026, 0.57883155, 0.9283724)
+light_color = Color(1, 0, 1, 1)
+
+[node name="UVLightDerInf" type="OmniLight3D" parent="Armario" unique_id=1604543101]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.3785159, 0.5373461, 0.91789687)
+light_color = Color(1, 0, 1, 1)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1909915838 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.401125, 3.1696563, 3.8134382)
+script = ExtResource("6_o6xl0")
+target = NodePath("../Armario")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=901256571]
+environment = SubResource("Environment_jyhfs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=978970746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.166961, 2.5300055, 6.585278)
+
+[node name="ArduinoMega" parent="." unique_id=932034638 instance=ExtResource("6_tefeu")]
+transform = Transform3D(-1.7484555e-10, 0, 0.004, 0, 0.004, 0, -0.004, 0, -1.7484555e-10, 2.9104998, 4.221409, -0.5118827)
+
+[connection signal="input_event" from="Armario/PivotPuertaDerecha/InputPuertaDerecha" to="Armario/PivotPuertaDerecha" method="_on_input_puerta_derecha_input_event"]
+[connection signal="input_event" from="Armario/PivotPuertaIzquierda/InputPuertaIzquierda" to="Armario/PivotPuertaIzquierda" method="_on_input_puerta_izquierda_input_event"]
