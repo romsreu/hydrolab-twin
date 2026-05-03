@@ -1,44 +1,22 @@
 extends Camera3D
 
-@export var target: Node3D
-@export var orbit_speed: float = 0.5
 @export var zoom_speed: float = 1.0
-@export var min_distance: float = 1.0
-@export var max_distance: float = 10.0
+@export var min_fov: float = 20.0
+@export var max_fov: float = 90.0
+@export var zoom_tween_duration: float = 0.2
 
-var distance: float = 5.0
-var yaw: float = 0.0
-var pitch: float = 20.0
-var is_dragging: bool = false
-
-func _ready():
-	# distancia inicial desde el target
-	distance = global_position.distance_to(target.global_position)
+var zoom_tween: Tween
 
 func _input(event):
-	# drag
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		is_dragging = event.pressed
-
-	if event is InputEventMouseMotion and is_dragging:
-		yaw -= event.relative.x * orbit_speed
-		pitch -= event.relative.y * orbit_speed
-		pitch = clamp(pitch, -80, 80)
-
-	# zoom
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			distance = clamp(distance - zoom_speed, min_distance, max_distance)
-		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			distance = clamp(distance + zoom_speed, min_distance, max_distance)
+			_tween_zoom(-zoom_speed)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			_tween_zoom(zoom_speed)
 
-func _process(delta):
-	if not target:
-		return
-	var offset = Vector3(
-		sin(deg_to_rad(yaw)) * cos(deg_to_rad(pitch)),
-		sin(deg_to_rad(pitch)),
-		cos(deg_to_rad(yaw)) * cos(deg_to_rad(pitch))
-	) * distance
-	global_position = target.global_position + offset
-	look_at(target.global_position)
+func _tween_zoom(delta_fov: float):
+	var target_fov = clamp(fov + delta_fov, min_fov, max_fov)
+	if zoom_tween:
+		zoom_tween.kill()
+	zoom_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	zoom_tween.tween_property(self, "fov", target_fov, zoom_tween_duration)

@@ -1,80 +1,131 @@
 [gd_scene format=3 uid="uid://dp5w7hcf00ryq"]
 
 [ext_resource type="PackedScene" uid="uid://d6yfuwu1aahq" path="res://3d_models/hydro_virtualization_v1.gltf" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://cm5dhryv4pm3p" path="res://scripts/pivot_armario.gd" id="1_tipki"]
 [ext_resource type="PackedScene" uid="uid://b0msxy5u8ih61" path="res://3d_models/PuertaDerecha.gltf" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://dndqw65wecnwa" path="res://scripts/pivot_puerta_derecha.gd" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://0y4yxiv3sua1" path="res://scripts/pivot_puerta_izquierda.gd" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://b4drjapdr2tbj" path="res://3d_models/PuertaIzquierda.gltf" id="3_tbgi4"]
-[ext_resource type="Script" uid="uid://c7b83q36qqpbm" path="res://scripts/camera_3d.gd" id="6_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://b85rqbkg63r3b" path="res://3d_models/ArduinoMega.glb" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://byt1vph8s8tyy" path="res://fan.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://bggf4dc6n0of3" path="res://scenes/hud.tscn" id="8_85g3d"]
+[ext_resource type="PackedScene" uid="uid://byt1vph8s8tyy" path="res://scenes/fan.tscn" id="8_tipki"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
-size = Vector3(1.2136102, 4.611603, 0.1340332)
+size = Vector3(1.13403, 4.5850296, 0.1340332)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jyhfs"]
-size = Vector3(1.1289864, 4.6061707, 0.15991211)
+size = Vector3(1.3115435, 4.6061707, 0.15991211)
+
+[sub_resource type="GDScript" id="GDScript_o6xl0"]
+script/source = "extends Camera3D
+
+@export var zoom_speed: float = 1.0
+@export var min_fov: float = 20.0
+@export var max_fov: float = 90.0
+@export var zoom_tween_duration: float = 0.2
+
+var zoom_tween: Tween
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			_tween_zoom(-zoom_speed)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			_tween_zoom(zoom_speed)
+
+func _tween_zoom(delta_fov: float):
+	var target_fov = clamp(fov + delta_fov, min_fov, max_fov)
+	if zoom_tween:
+		zoom_tween.kill()
+	zoom_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	zoom_tween.tween_property(self, \"fov\", target_fov, zoom_tween_duration)
+"
 
 [sub_resource type="Environment" id="Environment_jyhfs"]
 
 [node name="Main" type="Node3D" unique_id=1631033161]
 
-[node name="Armario" parent="." unique_id=400449095 instance=ExtResource("1_sugp2")]
-transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 3, 0, -3, -1.3113416e-07, 0.880075, 0.2616902, 0.8289807)
+[node name="PivotArmario" type="Node3D" parent="." unique_id=248595810]
+transform = Transform3D(1.0000001, 0, 5.237758e-05, 0, 1, 0, -5.237758e-05, 0, 1.0000001, 1.9094858, 2.9283047, -1.437469)
+script = ExtResource("1_tipki")
 
-[node name="PivotPuertaDerecha" type="Node3D" parent="Armario" unique_id=671319926]
-transform = Transform3D(0.044477627, -1.0658141e-14, 0.33035284, 0.33035284, -1.4570455e-08, -0.044477627, 1.4440181e-08, 0.3333333, -1.9441764e-09, 0.587543, 0.40818995, 0.7913407)
+[node name="Armario" parent="PivotArmario" unique_id=400449095 instance=ExtResource("1_sugp2")]
+transform = Transform3D(3.0000002, 0, 4.440892e-16, 0, -1.3113416e-07, 3, 0, -3.0000002, -1.3113417e-07, -0.5316076, -2.5512729, 1.9754598)
+
+[node name="PivotPuertaDerecha" type="Node3D" parent="PivotArmario/Armario" unique_id=671319926]
+transform = Transform3D(0.044477638, -1.06570475e-14, 0.33035335, 0.33035335, -1.4570462e-08, -0.044477638, 1.4440181e-08, 0.33333397, -1.9441764e-09, 0.5820612, 0.35441262, 0.70256925)
 script = ExtResource("2_tbgi4")
 
-[node name="InputPuertaDerecha" type="Area3D" parent="Armario/PivotPuertaDerecha" unique_id=1579350233]
-transform = Transform3D(0.12160939, 7.052686e-15, -0.9925778, -7.052689e-15, 0.9999997, 6.24134e-15, 0.9925778, 6.2413665e-15, 0.12160939, 0.018378854, 0, 0.13650823)
+[node name="InputPuertaDerecha" type="Area3D" parent="PivotArmario/Armario/PivotPuertaDerecha" unique_id=1579350233]
+transform = Transform3D(0.13208336, 7.0431704e-15, -0.9912386, -7.04317e-15, 0.99999976, 6.1669284e-15, 0.9912386, 6.166937e-15, 0.13208336, 0.08586928, 0.74825823, 0.6379869)
 
-[node name="PuertaDerecha" parent="Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=1781237719 instance=ExtResource("2_jyhfs")]
-transform = Transform3D(3.0252051, 0.02596048, 1.1370968e-09, -2.0334323e-16, -1.1996023e-07, 2.7499998, 0.028618338, -2.744247, -1.2020092e-07, -1.7217237, -2.2849503, 1.2870798)
+[node name="PuertaDerecha" parent="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=1781237719 instance=ExtResource("2_jyhfs")]
+transform = Transform3D(3.0253465, 6.9849193e-10, -1.3877788e-17, -3.3351922e-21, -1.1996013e-07, 2.75, 4.656613e-10, -2.744368, -1.2020632e-07, -2.1803946, -2.7541177, 1.1298373)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=961987987]
-transform = Transform3D(0.99999326, -7.808585e-22, -1.4901161e-08, 8.271806e-23, 1, 4.7433845e-20, 1.4901161e-08, 1.9142945e-19, 0.99999326, -0.8147738, -0.16442418, 0.19519907)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=961987987]
+transform = Transform3D(0.9999972, 1.0889667e-19, -1.14087015e-08, 2.9540274e-20, 1, -3.7947076e-19, 1.14087015e-08, 6.098637e-19, 0.9999972, -1.2623279, -0.6408274, 0.06751183)
 shape = SubResource("BoxShape3D_tbgi4")
-debug_color = Color(0.98039216, 0.39607844, 0.5921569, 1)
+debug_color = Color(0.010181468, 0.0017466176, 0.008044679, 1)
 
-[node name="PivotPuertaIzquierda" type="Node3D" parent="Armario" unique_id=1804229504]
-transform = Transform3D(-0.331963, 4.0708178e-16, -0.030193506, -0.030193506, -1.4570464e-08, 0.331963, -1.3197999e-09, 0.3333333, 1.4510563e-08, -0.25649258, 0.35386106, 0.84409714)
+[node name="PivotPuertaIzquierda" type="Node3D" parent="PivotArmario/Armario" unique_id=1804229504]
+transform = Transform3D(-0.3318172, -2.9192696e-08, -0.03175164, -0.03175164, -1.506895e-09, 0.3318172, -2.920346e-08, 0.33333334, -1.2807169e-09, -0.25649214, 0.3538611, 0.84409726)
 script = ExtResource("3_jyhfs")
 
-[node name="InputPuertaIzquierda" type="Area3D" parent="Armario/PivotPuertaIzquierda" unique_id=1034834399]
+[node name="InputPuertaIzquierda" type="Area3D" parent="PivotArmario/Armario/PivotPuertaIzquierda" unique_id=1034834399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14557368, 0, 0.007733673)
 
-[node name="PuertaIzquierda" parent="Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=235105716 instance=ExtResource("3_tbgi4")]
-transform = Transform3D(3.0115814, 0.23937814, 1.0491297e-08, 1.2807501e-18, -1.198883e-07, 2.7499993, 0.2638499, -2.7322595, -1.1974758e-07, -0.38127142, -2.4429033, 1.1724583)
+[node name="PuertaIzquierda" parent="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=235105716 instance=ExtResource("3_tbgi4")]
+transform = Transform3D(3.0115814, 0.23937812, 1.0491302e-08, 6.3282712e-15, -1.198883e-07, 2.7499993, 0.2638499, -2.7322598, -1.197476e-07, -0.37912875, -2.4429033, 1.1500784)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=249387504]
-transform = Transform3D(1.0000032, 0, 9.685755e-07, -4.9502236e-22, 1, 0, -9.685755e-07, -1.079967e-20, 1.0000032, -0.884735, -0.32121277, -0.095108464)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=249387504]
+transform = Transform3D(0.99616444, -4.4656843e-09, -0.087538525, 3.8250265e-09, 1, -7.486587e-09, 0.087538525, 7.1229884e-09, 0.99616444, -0.79148304, -0.32121277, -0.09510866)
 shape = SubResource("BoxShape3D_jyhfs")
-debug_color = Color(0.98039216, 0.39607844, 0.5921569, 1)
+debug_color = Color(0.0006216452, 0.0048213117, 1.8801075e-10, 1)
 
-[node name="UVLightIzqSup" type="OmniLight3D" parent="Armario" unique_id=1960523286]
+[node name="UVLightIzqSup" type="OmniLight3D" parent="PivotArmario/Armario" unique_id=1960523286]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.049539804, 0.59131014, 1.459144)
 light_color = Color(1, 0, 1, 1)
 
-[node name="UVLightDerSup" type="OmniLight3D" parent="Armario" unique_id=1009743813]
+[node name="UVLightDerSup" type="OmniLight3D" parent="PivotArmario/Armario" unique_id=1009743813]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.2811364, 0.58568126, 1.4616464)
 light_color = Color(1, 0, 1, 1)
 
-[node name="UVLightIzqInf" type="OmniLight3D" parent="Armario" unique_id=1714613724]
+[node name="UVLightIzqInf" type="OmniLight3D" parent="PivotArmario/Armario" unique_id=1714613724]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.052141026, 0.57883155, 0.9283724)
 light_color = Color(1, 0, 1, 1)
 
-[node name="UVLightDerInf" type="OmniLight3D" parent="Armario" unique_id=1604543101]
+[node name="UVLightDerInf" type="OmniLight3D" parent="PivotArmario/Armario" unique_id=1604543101]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.3785159, 0.5373461, 0.91789687)
 light_color = Color(1, 0, 1, 1)
 
-[node name="Fan" parent="Armario" unique_id=695988897 instance=ExtResource("8_tipki")]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, -7.958079e-15, 0, 7.958079e-15, 1.4, 0, 0.9379652, 0.69372106)
+[node name="FanDerInf" parent="PivotArmario/Armario" unique_id=695988897 instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.0658141e-14, 0, 1.0658141e-14, 1, -0.095024064, 0.7980431, 0.8920816)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1909915838 node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.401125, 3.1696563, 3.8134382)
-script = ExtResource("6_o6xl0")
-target = NodePath("../Armario")
+[node name="FanMidInf" parent="PivotArmario/Armario" unique_id=1982389053 instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.0658141e-14, 0, 1.0658141e-14, 1, 0.15553328, 0.7994223, 0.8914329)
+
+[node name="FanIzqInf" parent="PivotArmario/Armario" unique_id=2054830836 instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40678096, 0.7992865, 0.89185834)
+
+[node name="FanDerSup" parent="PivotArmario/Armario" unique_id=58500658 instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09658283, 0.80389774, 1.3234531)
+
+[node name="FanMidSup" parent="PivotArmario/Armario" unique_id=1974084429 instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15252799, 0.80100423, 1.3210412)
+
+[node name="FanIzqSup" parent="PivotArmario/Armario" unique_id=149510130 instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4021315, 0.8001936, 1.321834)
+
+[node name="FanIzqLat" parent="PivotArmario/Armario" unique_id=1270129171 instance=ExtResource("8_tipki")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 1.2705494e-21, 1, -0.2804136, 0.58325803, 0.91179276)
+
+[node name="FanDerLat" parent="PivotArmario/Armario" unique_id=1853428304 instance=ExtResource("8_tipki")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 6.352747e-22, 1, 0.60959405, 0.5708741, 0.91238236)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1909915838]
+transform = Transform3D(1, 0, 0, 0, 0.9936565, 0.112457514, 0, -0.112457514, 0.9936565, 1.401125, 3.1696563, 3.8134382)
+fov = 92.81249
+script = SubResource("GDScript_o6xl0")
+zoom_speed = 10.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=901256571]
 environment = SubResource("Environment_jyhfs")
@@ -82,8 +133,8 @@ environment = SubResource("Environment_jyhfs")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=978970746]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.166961, 2.5300055, 6.585278)
 
-[node name="ArduinoMega" parent="." unique_id=932034638 instance=ExtResource("6_tefeu")]
-transform = Transform3D(-1.7484555e-10, 0, 0.004, 0, 0.004, 0, -0.004, 0, -1.7484555e-10, 2.9104998, 4.221409, -0.5118827)
+[node name="Hud" parent="." unique_id=509654155 instance=ExtResource("8_85g3d")]
+visible = false
 
-[connection signal="input_event" from="Armario/PivotPuertaDerecha/InputPuertaDerecha" to="Armario/PivotPuertaDerecha" method="_on_input_puerta_derecha_input_event"]
-[connection signal="input_event" from="Armario/PivotPuertaIzquierda/InputPuertaIzquierda" to="Armario/PivotPuertaIzquierda" method="_on_input_puerta_izquierda_input_event"]
+[connection signal="input_event" from="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" to="PivotArmario/Armario/PivotPuertaDerecha" method="_on_input_puerta_derecha_input_event"]
+[connection signal="input_event" from="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" to="PivotArmario/Armario/PivotPuertaIzquierda" method="_on_input_puerta_izquierda_input_event"]

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://d37non7sppph7"]
+
+[ext_resource type="Script" uid="uid://cud4wb5swngbs" path="res://scripts/toggle_item.gd" id="1_w6q2v"]
+[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="2_81yek"]
+
+[node name="ToggleItem" type="Button" unique_id=361502554]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 561.0
+offset_bottom = 81.0
+toggle_mode = true
+script = ExtResource("1_w6q2v")
+
+[node name="TypeLabel" type="Label" parent="." unique_id=357371755]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 28.0
+offset_top = -11.5
+offset_right = 175.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_81yek")
+theme_override_font_sizes/font_size = 35
+text = "ITEM"
+
+[node name="State" type="Label" parent="." unique_id=1732333371]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -11.5
+offset_right = -43.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_81yek")
+theme_override_font_sizes/font_size = 35
+text = "ON"
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]
