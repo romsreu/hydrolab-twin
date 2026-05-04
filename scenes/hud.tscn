@@ -108,7 +108,7 @@ label_text = "POSTERIOR SUPERIOR IZQUIERDO"
 layout_mode = 2
 label_text = "POSTERIOR SUPERIOR MEDIO"
 
-[node name="VentPostSupDer2" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=1161843769 instance=ExtResource("2_oo0fn")]
+[node name="VentPostSupDer" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=1161843769 instance=ExtResource("2_oo0fn")]
 layout_mode = 2
 label_text = "POSTERIOR SUPERIOR DERECHO"
 
@@ -138,3 +138,13 @@ label_text = "SUPERIOR DERECHO"
 [connection signal="toggled" from="PanelContainer/LucesContainer/VBoxContainer/UvSupDer" to="." method="_on_uv_sup_der_toggled"]
 [connection signal="toggled" from="PanelContainer/LucesContainer/VBoxContainer/UvInfIzq" to="." method="_on_uv_inf_izq_toggled"]
 [connection signal="toggled" from="PanelContainer/LucesContainer/VBoxContainer/UvInfDer" to="." method="_on_uv_inf_der_toggled"]
+[connection signal="toggled" from="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer/VentLatIzq" to="." method="_on_vent_lat_izq_toggled"]
+[connection signal="toggled" from="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer/VentLatDer" to="." method="_on_vent_lat_der_toggled"]
+[connection signal="toggled" from="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer/VentPostSupIzq" to="." method="_on_vent_post_sup_izq_toggled"]
+[connection signal="toggled" from="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer/VentPostSupMedio" to="." method="_on_vent_post_sup_medio_toggled"]
+[connection signal="toggled" from="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer/VentPostSupDer" to="." method="_on_vent_post_sup_der_toggled"]
+[connection signal="toggled" from="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer/VentPostInfIzq" to="." method="_on_vent_post_inf_izq_toggled"]
+[connection signal="toggled" from="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer/VentPostInfMedio" to="." method="_on_vent_post_inf_medio_toggled"]
+[connection signal="toggled" from="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer/VentPostInfDer" to="." method="_on_vent_post_inf_der_toggled"]
+[connection signal="toggled" from="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer/VentSupIzq" to="." method="_on_vent_sup_izq_toggled"]
+[connection signal="toggled" from="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer/VentSupDer" to="." method="_on_vent_sup_der_toggled"]
