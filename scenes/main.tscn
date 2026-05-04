@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d6yfuwu1aahq" path="res://3d_models/hydro_virtualization_v1.gltf" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://cm5dhryv4pm3p" path="res://scripts/pivot_armario.gd" id="1_tipki"]
+[ext_resource type="Script" uid="uid://g8yyrbk6m3hm" path="res://scripts/main.gd" id="1_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://b0msxy5u8ih61" path="res://3d_models/PuertaDerecha.gltf" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://dndqw65wecnwa" path="res://scripts/pivot_puerta_derecha.gd" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://0y4yxiv3sua1" path="res://scripts/pivot_puerta_izquierda.gd" id="3_jyhfs"]
@@ -65,6 +66,7 @@ sky = SubResource("Sky_85g3d")
 sky_custom_fov = 4.9
 
 [node name="Main" type="Node3D" unique_id=1631033161]
+script = ExtResource("1_ya4ey")
 
 [node name="PivotArmario" type="Node3D" parent="." unique_id=248595810]
 transform = Transform3D(1.0000001, 0, 5.237758e-05, 0, 1, 0, -5.237758e-05, 0, 1.0000001, 1.9094858, 2.9283047, -1.437469)
@@ -170,3 +172,7 @@ visible = false
 
 [connection signal="input_event" from="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" to="PivotArmario/Armario/PivotPuertaDerecha" method="_on_input_puerta_derecha_input_event"]
 [connection signal="input_event" from="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" to="PivotArmario/Armario/PivotPuertaIzquierda" method="_on_input_puerta_izquierda_input_event"]
+[connection signal="uvInfDer" from="Hud" to="." method="_on_hud_uv_inf_der"]
+[connection signal="uvInfIzq" from="Hud" to="." method="_on_hud_uv_inf_izq"]
+[connection signal="uvSupDer" from="Hud" to="." method="_on_hud_uv_sup_der"]
+[connection signal="uvSupIzq" from="Hud" to="." method="_on_hud_uv_sup_izq"]

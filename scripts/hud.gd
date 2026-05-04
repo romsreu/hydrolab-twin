@@ -8,6 +8,11 @@ extends Control
 var active: String = ""
 var tween: Tween
 
+signal uvSupIzq(toggle : bool)
+signal uvSupDer(toggle : bool)
+signal uvInfIzq(toggle : bool)
+signal uvInfDer(toggle : bool)
+
 func _ready():
 	for panel in panels.values():
 		panel.hide()
@@ -46,3 +51,19 @@ func _on_luces_button_pressed():
 
 func _on_ventiladores_button_pressed() -> void:
 	toggle("ventiladores")
+
+
+func _on_uv_sup_izq_toggled(toggled_on: bool) -> void:
+	uvSupIzq.emit(toggled_on)
+
+
+func _on_uv_sup_der_toggled(toggled_on: bool) -> void:
+	uvSupDer.emit(toggled_on)
+
+
+func _on_uv_inf_izq_toggled(toggled_on: bool) -> void:
+	uvInfIzq.emit(toggled_on)
+
+
+func _on_uv_inf_der_toggled(toggled_on: bool) -> void:
+	uvInfDer.emit(toggled_on)
