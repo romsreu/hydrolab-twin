@@ -54,18 +54,6 @@ func _tween_zoom(delta_fov: float):
 	zoom_tween.tween_property(self, \"fov\", target_fov, zoom_tween_duration)
 "
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tipki"]
-ground_bottom_color = Color(0.10358328, 0.10845082, 0.06378826, 1)
-ground_horizon_color = Color(0.101960786, 0.10980392, 0.0627451, 1)
-
-[sub_resource type="Sky" id="Sky_85g3d"]
-sky_material = SubResource("ProceduralSkyMaterial_tipki")
-
-[sub_resource type="Environment" id="Environment_jyhfs"]
-background_mode = 2
-sky = SubResource("Sky_85g3d")
-sky_custom_fov = 4.9
-
 [node name="Main" type="Node3D" unique_id=1631033161]
 script = ExtResource("1_ya4ey")
 
@@ -175,9 +163,6 @@ transform = Transform3D(1, 0, 0, 0, 0.9936565, 0.112457514, 0, -0.112457514, 0.9
 fov = 92.81249
 script = SubResource("GDScript_o6xl0")
 zoom_speed = 10.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=901256571]
-environment = SubResource("Environment_jyhfs")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=978970746]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.166961, 2.5300055, 6.585278)
