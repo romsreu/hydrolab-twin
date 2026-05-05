@@ -14,6 +14,16 @@ config/name="hydro_virtualization"
 run/main_scene="uid://dp5w7hcf00ryq"
 config/features=PackedStringArray("4.6", "Mobile")
 
+[file_customization]
+
+folder_colors={
+"res://3d_models/": "pink",
+"res://resources/": "purple",
+"res://scenes/": "blue",
+"res://scripts/": "teal",
+"res://textures/": "green"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
