@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bggf4dc6n0of3" path="res://scenes/hud.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://byt1vph8s8tyy" path="res://scenes/fan.tscn" id="8_tipki"]
 [ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="12_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://crp1q05t0kmya" path="res://resources/horn-koppe_spring_4k.exr" id="13_trceg"]
+[ext_resource type="Texture2D" uid="uid://bomp788lsq11k" path="res://resources/horn-koppe_spring_2k.hdr" id="13_trceg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
 size = Vector3(1.13403, 4.5850296, 0.1340332)
