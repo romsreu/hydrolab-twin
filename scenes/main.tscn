@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bggf4dc6n0of3" path="res://scenes/hud.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://byt1vph8s8tyy" path="res://scenes/fan.tscn" id="8_tipki"]
 [ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="12_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://crp1q05t0kmya" path="res://resources/horn-koppe_spring_4k.exr" id="13_trceg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
 size = Vector3(1.13403, 4.5850296, 0.1340332)
@@ -53,6 +54,17 @@ func _tween_zoom(delta_fov: float):
 	zoom_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	zoom_tween.tween_property(self, \"fov\", target_fov, zoom_tween_duration)
 "
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a8y0u"]
+panorama = ExtResource("13_trceg")
+energy_multiplier = 0.6
+
+[sub_resource type="Sky" id="Sky_trceg"]
+sky_material = SubResource("PanoramaSkyMaterial_a8y0u")
+
+[sub_resource type="Environment" id="Environment_a8y0u"]
+background_mode = 2
+sky = SubResource("Sky_trceg")
 
 [node name="Main" type="Node3D" unique_id=1631033161]
 script = ExtResource("1_ya4ey")
@@ -169,6 +181,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.166961, 2.5300055, 6.585278
 
 [node name="Hud" parent="." unique_id=509654155 instance=ExtResource("8_85g3d")]
 visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1967310756]
+environment = SubResource("Environment_a8y0u")
 
 [connection signal="input_event" from="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" to="PivotArmario/Armario/PivotPuertaDerecha" method="_on_input_puerta_derecha_input_event"]
 [connection signal="input_event" from="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" to="PivotArmario/Armario/PivotPuertaIzquierda" method="_on_input_puerta_izquierda_input_event"]
