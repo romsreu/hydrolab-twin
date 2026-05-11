@@ -13,6 +13,13 @@ config_version=5
 config/name="hydro_virtualization"
 run/main_scene="uid://dp5w7hcf00ryq"
 config/features=PackedStringArray("4.6", "Mobile")
+config/icon="uid://vjpqeyujd40t"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+window/handheld/orientation=1
 
 [file_customization]
 

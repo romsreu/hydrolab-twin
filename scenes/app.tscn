@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bdqeuxuaivvn7"]
+
+[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="1_1670a"]
+[ext_resource type="PackedScene" uid="uid://dp5w7hcf00ryq" path="res://scenes/main.tscn" id="2_dmsei"]
+
+[node name="Control" type="Control" unique_id=341107439]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2056158674]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -77.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=394859540]
+custom_minimum_size = Vector2(210, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_1670a")
+text = "ESTADO"
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=492569233]
+custom_minimum_size = Vector2(210, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_1670a")
+text = "3D"
+
+[node name="Button3" type="Button" parent="HBoxContainer" unique_id=171083689]
+custom_minimum_size = Vector2(210, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_1670a")
+text = "DASHBOARD"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1378125589]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.9110001
+offset_bottom = 0.5279541
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1717629028]
+size = Vector2i(648, 500)
+
+[node name="Main" parent="SubViewportContainer/SubViewport" unique_id=1631033161 instance=ExtResource("2_dmsei")]
