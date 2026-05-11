@@ -1,26 +1,30 @@
 [gd_scene format=3 uid="uid://bggf4dc6n0of3"]
 
-[ext_resource type="Script" uid="uid://cw7cthnbwwlhg" path="res://scripts/hud.gd" id="1_5ysmq"]
-[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="1_ahhtf"]
-[ext_resource type="PackedScene" uid="uid://d37non7sppph7" path="res://scenes/toggle_item.tscn" id="2_oo0fn"]
+[ext_resource type="Script" uid="uid://cw7cthnbwwlhg" path="res://scripts/hud.gd" id="1_brbbq"]
+[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="2_8n18e"]
+[ext_resource type="PackedScene" uid="uid://d37non7sppph7" path="res://scenes/toggle_item.tscn" id="3_tjwpk"]
 
-[node name="Hud" type="Control" unique_id=509654155]
+[node name="Control" type="Control" unique_id=509654155]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5ysmq")
+script = ExtResource("1_brbbq")
 
 [node name="MainOptionsContainer" type="PanelContainer" parent="." unique_id=1576458028]
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.24700001
+anchor_right = 0.347
 anchor_bottom = 1.0
-offset_right = 0.45599365
+offset_right = -64.34401
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainOptionsContainer" unique_id=470151527]
+layout_mode = 2
+color = Color(0.3372549, 0.57254905, 0.16078432, 1)
 
 [node name="MainButtons" type="VBoxContainer" parent="MainOptionsContainer" unique_id=1895795269]
 layout_mode = 2
@@ -28,21 +32,21 @@ layout_mode = 2
 [node name="BombasButton" type="Button" parent="MainOptionsContainer/MainButtons" unique_id=764749246]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_fonts/font = ExtResource("2_8n18e")
 theme_override_font_sizes/font_size = 32
 text = "BOMBAS"
 
 [node name="LucesButton" type="Button" parent="MainOptionsContainer/MainButtons" unique_id=96141805]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_fonts/font = ExtResource("2_8n18e")
 theme_override_font_sizes/font_size = 32
 text = "LUCES"
 
 [node name="VentiladoresButton" type="Button" parent="MainOptionsContainer/MainButtons" unique_id=460155063]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_fonts/font = ExtResource("2_8n18e")
 theme_override_font_sizes/font_size = 32
 text = "VENTILADORES"
 
@@ -54,9 +58,12 @@ anchor_left = 0.24700001
 anchor_top = 0.0050000004
 anchor_right = 1.0020001
 anchor_bottom = 1.0
-offset_left = 0.45599365
-offset_top = -3.2400002
-offset_right = -0.30407715
+offset_left = 58.944
+offset_top = -2.7600002
+offset_right = -0.3040161
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer" unique_id=843894767]
+layout_mode = 2
 
 [node name="LucesContainer" type="PanelContainer" parent="PanelContainer" unique_id=864541534]
 layout_mode = 2
@@ -64,19 +71,19 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/LucesContainer" unique_id=2091021123]
 layout_mode = 2
 
-[node name="UvSupIzq" parent="PanelContainer/LucesContainer/VBoxContainer" unique_id=361502554 instance=ExtResource("2_oo0fn")]
+[node name="UvSupIzq" parent="PanelContainer/LucesContainer/VBoxContainer" unique_id=361502554 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "UV SUPERIOR IZQUIERDA"
 
-[node name="UvSupDer" parent="PanelContainer/LucesContainer/VBoxContainer" unique_id=1956231548 instance=ExtResource("2_oo0fn")]
+[node name="UvSupDer" parent="PanelContainer/LucesContainer/VBoxContainer" unique_id=1956231548 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "UV SUPERIOR DERECHA"
 
-[node name="UvInfIzq" parent="PanelContainer/LucesContainer/VBoxContainer" unique_id=1138838967 instance=ExtResource("2_oo0fn")]
+[node name="UvInfIzq" parent="PanelContainer/LucesContainer/VBoxContainer" unique_id=1138838967 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "UV INFERIOR IZQUIERDA"
 
-[node name="UvInfDer" parent="PanelContainer/LucesContainer/VBoxContainer" unique_id=5202163 instance=ExtResource("2_oo0fn")]
+[node name="UvInfDer" parent="PanelContainer/LucesContainer/VBoxContainer" unique_id=5202163 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "UV INFERIOR IZQUIERDA"
 
@@ -92,43 +99,43 @@ horizontal_scroll_mode = 0
 custom_minimum_size = Vector2(860, 0)
 layout_mode = 2
 
-[node name="VentLatIzq" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=493555083 instance=ExtResource("2_oo0fn")]
+[node name="VentLatIzq" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=493555083 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "LATERAL IZQUIERDO"
 
-[node name="VentLatDer" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=1712125983 instance=ExtResource("2_oo0fn")]
+[node name="VentLatDer" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=1712125983 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "LATERAL DERECHO"
 
-[node name="VentPostSupIzq" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=96369619 instance=ExtResource("2_oo0fn")]
+[node name="VentPostSupIzq" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=96369619 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "POSTERIOR SUPERIOR IZQUIERDO"
 
-[node name="VentPostSupMedio" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=1578542541 instance=ExtResource("2_oo0fn")]
+[node name="VentPostSupMedio" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=1578542541 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "POSTERIOR SUPERIOR MEDIO"
 
-[node name="VentPostSupDer" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=1161843769 instance=ExtResource("2_oo0fn")]
+[node name="VentPostSupDer" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=1161843769 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "POSTERIOR SUPERIOR DERECHO"
 
-[node name="VentPostInfIzq" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=765634532 instance=ExtResource("2_oo0fn")]
+[node name="VentPostInfIzq" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=765634532 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "POSTERIOR INFERIOR IZQUIERDO"
 
-[node name="VentPostInfMedio" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=863407056 instance=ExtResource("2_oo0fn")]
+[node name="VentPostInfMedio" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=863407056 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "POSTERIOR INFERIOR MEDIO"
 
-[node name="VentPostInfDer" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=180402205 instance=ExtResource("2_oo0fn")]
+[node name="VentPostInfDer" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=180402205 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "POSTERIOR INFERIOR DERECHO"
 
-[node name="VentSupIzq" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=946260957 instance=ExtResource("2_oo0fn")]
+[node name="VentSupIzq" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=946260957 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "SUPERIOR IZQUIERDO"
 
-[node name="VentSupDer" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=1689292524 instance=ExtResource("2_oo0fn")]
+[node name="VentSupDer" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=1689292524 instance=ExtResource("3_tjwpk")]
 layout_mode = 2
 label_text = "SUPERIOR DERECHO"
 

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b4drjapdr2tbj" path="res://3d_models/PuertaIzquierda.gltf" id="3_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://vjpqeyujd40t" path="res://textures/left_door.png" id="5_85g3d"]
 [ext_resource type="Texture2D" uid="uid://bcbfchkdyte2a" path="res://textures/right_door.png" id="5_choun"]
-[ext_resource type="PackedScene" uid="uid://bggf4dc6n0of3" path="res://scenes/hud.tscn" id="8_85g3d"]
+[ext_resource type="PackedScene" uid="uid://bggf4dc6n0of3" path="res://scenes/control.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://byt1vph8s8tyy" path="res://scenes/fan.tscn" id="8_tipki"]
 [ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="12_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bomp788lsq11k" path="res://resources/horn-koppe_spring_2k.hdr" id="13_trceg"]
