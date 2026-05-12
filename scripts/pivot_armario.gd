@@ -2,8 +2,8 @@ extends Node3D
 
 @export var orbit_speed: float = 0.3
 @export var zoom_speed: float = 0.01
-@export var min_zoom: float = 1.0
-@export var max_zoom: float = 20.0
+@export var min_zoom: float = 0.3
+@export var max_zoom: float = 1.5
 
 var is_dragging: bool = false
 var last_touch_positions: Dictionary = {}
@@ -13,9 +13,9 @@ func _input(event):
 	# — Desktop (mouse) —
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		is_dragging = event.pressed
+
 	if event is InputEventMouseMotion and is_dragging:
-		rotate(Vector3.UP, deg_to_rad(event.relative.x * orbit_speed))
-		rotate(transform.basis.x.normalized(), deg_to_rad(event.relative.y * orbit_speed))
+		_apply_rotation(event.relative.x, event.relative.y)
 
 	# — Mobile (touch) —
 	if event is InputEventScreenTouch:
@@ -27,27 +27,23 @@ func _input(event):
 
 	if event is InputEventScreenDrag:
 		last_touch_positions[event.index] = event.position
-
 		if last_touch_positions.size() == 1:
-			# Un dedo → rotar
-			rotate(Vector3.UP, deg_to_rad(event.relative.x * orbit_speed))
-			rotate(transform.basis.x.normalized(), deg_to_rad(event.relative.y * orbit_speed))
-
+			_apply_rotation(event.relative.x, event.relative.y)
 		elif last_touch_positions.size() == 2:
-			# Dos dedos → pinch zoom
 			var positions = last_touch_positions.values()
 			var current_distance = positions[0].distance_to(positions[1])
-
 			if last_pinch_distance > 0.0:
 				var delta = current_distance - last_pinch_distance
-				_apply_zoom(-delta * zoom_speed)
-
+				_apply_zoom(delta * zoom_speed)
 			last_pinch_distance = current_distance
 
+func _apply_rotation(dx: float, dy: float):
+	# Yaw en eje Y global → rotación horizontal consistente
+	rotate_y(deg_to_rad(dx * orbit_speed))
+	# Pitch en eje X local → después del yaw coincide con el horizontal de pantalla
+	rotate_object_local(Vector3.RIGHT, deg_to_rad(dy * orbit_speed))
+
 func _apply_zoom(amount: float):
-	var forward = -transform.basis.z.normalized()
-	var new_pos = position + forward * amount
-	# Clamp por distancia al origen
-	var dist = new_pos.length()
-	if dist >= min_zoom and dist <= max_zoom:
-		position = new_pos
+	var new_scale = scale.x + amount
+	new_scale = clamp(new_scale, min_zoom, max_zoom)
+	scale = Vector3.ONE * new_scale

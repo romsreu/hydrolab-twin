@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dp5w7hcf00ryq"]
 
 [ext_resource type="PackedScene" uid="uid://d6yfuwu1aahq" path="res://3d_models/hydro_virtualization_v1.gltf" id="1_sugp2"]
-[ext_resource type="Script" uid="uid://cm5dhryv4pm3p" path="res://scripts/pivot_armario.gd" id="1_tipki"]
 [ext_resource type="Script" uid="uid://g8yyrbk6m3hm" path="res://scripts/main.gd" id="1_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://b0msxy5u8ih61" path="res://3d_models/PuertaDerecha.gltf" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://dndqw65wecnwa" path="res://scripts/pivot_puerta_derecha.gd" id="2_tbgi4"]
@@ -12,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bggf4dc6n0of3" path="res://scenes/control.tscn" id="8_85g3d"]
 [ext_resource type="PackedScene" uid="uid://byt1vph8s8tyy" path="res://scenes/fan.tscn" id="8_tipki"]
 [ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="12_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://bomp788lsq11k" path="res://resources/horn-koppe_spring_2k.hdr" id="13_trceg"]
+[ext_resource type="Script" uid="uid://bguoue80ef1s3" path="res://scenes/camara_pivot.gd" id="12_trceg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
 size = Vector3(1.13403, 4.5850296, 0.1340332)
@@ -30,51 +29,17 @@ albedo_texture = ExtResource("5_85g3d")
 [sub_resource type="BoxShape3D" id="BoxShape3D_jyhfs"]
 size = Vector3(1.3115435, 4.6061707, 0.15991211)
 
-[sub_resource type="GDScript" id="GDScript_o6xl0"]
-script/source = "extends Camera3D
-
-@export var zoom_speed: float = 1.0
-@export var min_fov: float = 20.0
-@export var max_fov: float = 90.0
-@export var zoom_tween_duration: float = 0.2
-
-var zoom_tween: Tween
-
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			_tween_zoom(-zoom_speed)
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			_tween_zoom(zoom_speed)
-
-func _tween_zoom(delta_fov: float):
-	var target_fov = clamp(fov + delta_fov, min_fov, max_fov)
-	if zoom_tween:
-		zoom_tween.kill()
-	zoom_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	zoom_tween.tween_property(self, \"fov\", target_fov, zoom_tween_duration)
-"
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a8y0u"]
-panorama = ExtResource("13_trceg")
-energy_multiplier = 0.6
-
-[sub_resource type="Sky" id="Sky_trceg"]
-sky_material = SubResource("PanoramaSkyMaterial_a8y0u")
-
 [sub_resource type="Environment" id="Environment_a8y0u"]
 background_mode = 2
-sky = SubResource("Sky_trceg")
 
 [node name="Main" type="Node3D" unique_id=1631033161]
 script = ExtResource("1_ya4ey")
 
 [node name="PivotArmario" type="Node3D" parent="." unique_id=248595810]
-transform = Transform3D(1.0000001, 0, 5.237758e-05, 0, 1, 0, -5.237758e-05, 0, 1.0000001, 1.9094858, 2.9283047, -1.437469)
-script = ExtResource("1_tipki")
+transform = Transform3D(1.0000001, 0, 5.237758e-05, 0, 1, 0, -5.237758e-05, 0, 1.0000001, 1.9094858, 2.9283047, -1.3726668)
 
 [node name="Armario" parent="PivotArmario" unique_id=400449095 instance=ExtResource("1_sugp2")]
-transform = Transform3D(3.0000002, 0, 4.440892e-16, 0, -1.3113416e-07, 3, 0, -3.0000002, -1.3113417e-07, -0.5316076, -2.5512729, 1.9754598)
+transform = Transform3D(3.0000002, 0, 4.445229e-16, 0, -1.3113416e-07, 3, 0, -3.0000002, -1.3113417e-07, -0.5316032, -2.5512729, 1.8939167)
 
 [node name="PivotPuertaDerecha" type="Node3D" parent="PivotArmario/Armario" unique_id=671319926]
 transform = Transform3D(0.044477638, -1.06570475e-14, 0.33035335, 0.33035335, -1.4570462e-08, -0.044477638, 1.4440181e-08, 0.33333397, -1.9441764e-09, 0.5820612, 0.35441262, 0.70256925)
@@ -170,20 +135,28 @@ font = ExtResource("12_eb6dy")
 font_size = 16
 outline_size = 0
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1909915838]
-transform = Transform3D(1, 0, 0, 0, 0.9936565, 0.112457514, 0, -0.112457514, 0.9936565, 1.401125, 3.1696563, 3.8134382)
-fov = 92.81249
-script = SubResource("GDScript_o6xl0")
-zoom_speed = 10.0
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=978970746]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.166961, 2.5300055, 6.585278)
+transform = Transform3D(0.7344291, -0.3013111, 0.60813284, 0, 0.8960452, 0.44396284, -0.6786854, -0.32605925, 0.6580817, 5.815361, 6.3664117, 6.585278)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1531719869]
+transform = Transform3D(0.58392394, 0.3604128, -0.7274171, -2.02264e-08, 0.8960453, 0.44396296, 0.8118086, -0.25924048, 0.5232222, -3.3620746, 6.3664117, 1.8820887)
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=821166996]
+transform = Transform3D(-0.99074787, -0.060252648, 0.12160718, -3.7628688e-08, 0.8960452, 0.4439628, -0.13571545, 0.43985522, -0.8877549, 0.2057364, 6.3664117, -8.8423195)
 
 [node name="Hud" parent="." unique_id=509654155 instance=ExtResource("8_85g3d")]
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1967310756]
 environment = SubResource("Environment_a8y0u")
+
+[node name="CamaraPivot" type="Node3D" parent="." unique_id=1215848847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9333777, 2.8523855, -1.303116)
+script = ExtResource("12_trceg")
+
+[node name="Camera3D" type="Camera3D" parent="CamaraPivot" unique_id=1909915838]
+transform = Transform3D(0.999992, -0.0004494694, 0.0039714393, 0, 0.9936566, 0.11245752, -0.0039967927, -0.11245663, 0.9936486, -0.045669317, 0.21685076, 4.034963)
+fov = 92.81249
 
 [connection signal="input_event" from="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" to="PivotArmario/Armario/PivotPuertaDerecha" method="_on_input_puerta_derecha_input_event"]
 [connection signal="input_event" from="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" to="PivotArmario/Armario/PivotPuertaIzquierda" method="_on_input_puerta_izquierda_input_event"]

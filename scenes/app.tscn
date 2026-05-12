@@ -1,9 +1,22 @@
 [gd_scene format=3 uid="uid://bdqeuxuaivvn7"]
 
 [ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="1_1670a"]
+[ext_resource type="Texture2D" uid="uid://cmd5kh4leq3qv" path="res://resources/732c0abf-1a08-4e6f-8461-cc1f3b15bd7d.jpg" id="1_dmsei"]
 [ext_resource type="PackedScene" uid="uid://dp5w7hcf00ryq" path="res://scenes/main.tscn" id="2_dmsei"]
+[ext_resource type="Texture2D" uid="uid://dqjhubm2p7j4j" path="res://scenes/settings_button.png" id="5_awiwq"]
+[ext_resource type="Texture2D" uid="uid://d1jge3kkrw8tm" path="res://scenes/icons.png" id="6_k6d74"]
+[ext_resource type="Texture2D" uid="uid://b6i8njqdihmc6" path="res://scenes/icons(1).png" id="7_ljqyw"]
+
+[sub_resource type="Gradient" id="Gradient_cl6f3"]
+colors = PackedColorArray(0.15784994, 0.6361196, 0.41127422, 1, 0.5686275, 0.8, 0.93333334, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_awiwq"]
+gradient = SubResource("Gradient_cl6f3")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.50869566, 1)
 
 [node name="Control" type="Control" unique_id=341107439]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,62 +24,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1167651763]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -101.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(0.3372549, 0.57254905, 0.16078432, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=2056158674]
+[node name="ColorRect2" type="TextureRect" parent="." unique_id=884304879]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -286.0
+offset_top = -154.0
+offset_right = 301.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
-
-[node name="Button" type="Button" parent="ColorRect/HBoxContainer" unique_id=394859540]
-custom_minimum_size = Vector2(210, 100)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_1670a")
-theme_override_font_sizes/font_size = 30
-text = "CONTROL"
-
-[node name="Button2" type="Button" parent="ColorRect/HBoxContainer" unique_id=492569233]
-custom_minimum_size = Vector2(210, 100)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_1670a")
-theme_override_font_sizes/font_size = 30
-text = "3D"
-
-[node name="Button3" type="Button" parent="ColorRect/HBoxContainer" unique_id=171083689]
-custom_minimum_size = Vector2(210, 100)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_1670a")
-theme_override_font_sizes/font_size = 30
-text = "DASHBOARD"
+texture = ExtResource("1_dmsei")
+expand_mode = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1378125589]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.078
 anchor_right = 1.0
-anchor_bottom = 0.90800005
+anchor_bottom = 0.88600004
 offset_top = 0.14399719
-offset_bottom = 4.9838867
+offset_bottom = 0.3279419
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1717629028]
+transparent_bg = true
 handle_input_locally = false
-size = Vector2i(648, 961)
+size = Vector2i(1080, 1551)
 render_target_update_mode = 4
 
 [node name="Main" parent="SubViewportContainer/SubViewport" unique_id=1631033161 instance=ExtResource("2_dmsei")]
@@ -78,28 +64,77 @@ anchor_bottom = 0.078
 offset_bottom = 0.14399719
 grow_horizontal = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1587273003]
+[node name="ColorRect" type="TextureRect" parent="Control" unique_id=1635803784]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.33595172, 0.57089937, 0.15936622, 1)
+texture = SubResource("GradientTexture2D_awiwq")
 
-[node name="Label" type="Label" parent="Control" unique_id=694821197]
+[node name="ColorRect" type="Control" parent="." unique_id=1497880004]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -308.25
+offset_top = -220.0
+offset_right = 308.25
+offset_bottom = -43.11084
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="ColorRect" unique_id=394859540]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1670a")
+theme_override_font_sizes/font_size = 30
+icon = ExtResource("5_awiwq")
+flat = true
+expand_icon = true
+
+[node name="Button2" type="Button" parent="ColorRect" unique_id=492569233]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_1670a")
-theme_override_font_sizes/font_size = 40
-text = "LAHI 4.0"
+theme_override_font_sizes/font_size = 30
+icon = ExtResource("6_k6d74")
+flat = true
+expand_icon = true
+
+[node name="Button3" type="Button" parent="ColorRect" unique_id=171083689]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_bottom = 75.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1670a")
+theme_override_font_sizes/font_size = 30
+icon = ExtResource("7_ljqyw")
+flat = true
+expand_icon = true

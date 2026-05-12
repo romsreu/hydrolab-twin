@@ -11,14 +11,18 @@ config_version=5
 [application]
 
 config/name="hydro_virtualization"
-run/main_scene="uid://dp5w7hcf00ryq"
+run/main_scene="uid://bdqeuxuaivvn7"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="uid://devkpyej4854u"
 
 [display]
 
-window/size/viewport_width=648
-window/size/viewport_height=1152
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/window_width_override=648
+window/size/window_height_override=1152
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/handheld/orientation=1
 
 [file_customization]

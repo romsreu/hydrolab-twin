@@ -2,22 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bomp788lsq11k"
-path.bptc="res://.godot/imported/horn-koppe_spring_2k.hdr-c21e8ef28bcb2891177dc3db34471440.bptc.ctex"
-path.astc="res://.godot/imported/horn-koppe_spring_2k.hdr-c21e8ef28bcb2891177dc3db34471440.astc.ctex"
+uid="uid://cmd5kh4leq3qv"
+path="res://.godot/imported/732c0abf-1a08-4e6f-8461-cc1f3b15bd7d.jpg-427b56aca1e6c745661a215a994b57ce.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/horn-koppe_spring_2k.hdr"
-dest_files=["res://.godot/imported/horn-koppe_spring_2k.hdr-c21e8ef28bcb2891177dc3db34471440.bptc.ctex", "res://.godot/imported/horn-koppe_spring_2k.hdr-c21e8ef28bcb2891177dc3db34471440.astc.ctex"]
+source_file="res://resources/732c0abf-1a08-4e6f-8461-cc1f3b15bd7d.jpg"
+dest_files=["res://.godot/imported/732c0abf-1a08-4e6f-8461-cc1f3b15bd7d.jpg-427b56aca1e6c745661a215a994b57ce.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -25,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -39,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
