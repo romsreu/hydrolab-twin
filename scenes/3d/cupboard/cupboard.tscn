@@ -32,7 +32,7 @@ size = Vector3(1.3115435, 4.6061707, 0.15991211)
 [sub_resource type="Environment" id="Environment_a8y0u"]
 background_mode = 2
 
-[node name="Main" type="Node3D" unique_id=1631033161]
+[node name="Cupboard" type="Node3D" unique_id=1631033161]
 script = ExtResource("1_ya4ey")
 
 [node name="PivotArmario" type="Node3D" parent="." unique_id=248595810]
