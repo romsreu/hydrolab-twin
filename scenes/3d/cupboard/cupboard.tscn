@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://dp5w7hcf00ryq"]
 
-[ext_resource type="PackedScene" uid="uid://d6yfuwu1aahq" path="res://3d_models/hydro_virtualization_v1.gltf" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://d6yfuwu1aahq" path="res://assets/3d/cupboard/hydro_virtualization_v1.gltf" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://g8yyrbk6m3hm" path="res://scripts/main.gd" id="1_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://b0msxy5u8ih61" path="res://3d_models/PuertaDerecha.gltf" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b0msxy5u8ih61" path="res://assets/3d/cupboard/PuertaDerecha.gltf" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://dndqw65wecnwa" path="res://scripts/pivot_puerta_derecha.gd" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://0y4yxiv3sua1" path="res://scripts/pivot_puerta_izquierda.gd" id="3_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://b4drjapdr2tbj" path="res://3d_models/PuertaIzquierda.gltf" id="3_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://vjpqeyujd40t" path="res://textures/left_door.png" id="5_85g3d"]
-[ext_resource type="Texture2D" uid="uid://bcbfchkdyte2a" path="res://textures/right_door.png" id="5_choun"]
-[ext_resource type="PackedScene" uid="uid://bggf4dc6n0of3" path="res://scenes/control.tscn" id="8_85g3d"]
-[ext_resource type="PackedScene" uid="uid://byt1vph8s8tyy" path="res://scenes/fan.tscn" id="8_tipki"]
-[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="12_eb6dy"]
-[ext_resource type="Script" uid="uid://bguoue80ef1s3" path="res://scenes/camara_pivot.gd" id="12_trceg"]
+[ext_resource type="PackedScene" uid="uid://b4drjapdr2tbj" path="res://assets/3d/cupboard/PuertaIzquierda.gltf" id="3_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://vjpqeyujd40t" path="res://assets/images/cupboard/left_door.png" id="5_85g3d"]
+[ext_resource type="Texture2D" uid="uid://bcbfchkdyte2a" path="res://assets/images/cupboard/right_door.png" id="5_choun"]
+[ext_resource type="PackedScene" uid="uid://bggf4dc6n0of3" path="res://scenes/app/screens/control.tscn" id="8_85g3d"]
+[ext_resource type="PackedScene" uid="uid://byt1vph8s8tyy" path="res://scenes/3d/components/fan.tscn" id="8_tipki"]
+[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="12_eb6dy"]
+[ext_resource type="Script" uid="uid://bguoue80ef1s3" path="res://scripts/camara_pivot.gd" id="12_trceg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
 size = Vector3(1.13403, 4.5850296, 0.1340332)
@@ -38,7 +38,7 @@ script = ExtResource("1_ya4ey")
 [node name="PivotArmario" type="Node3D" parent="." unique_id=248595810]
 transform = Transform3D(1.0000001, 0, 5.237758e-05, 0, 1, 0, -5.237758e-05, 0, 1.0000001, 1.9094858, 2.9283047, -1.3726668)
 
-[node name="Armario" parent="PivotArmario" unique_id=400449095 instance=ExtResource("1_sugp2")]
+[node name="Armario" parent="PivotArmario" unique_id=555921114 instance=ExtResource("1_sugp2")]
 transform = Transform3D(3.0000002, 0, 4.445229e-16, 0, -1.3113416e-07, 3, 0, -3.0000002, -1.3113417e-07, -0.5316032, -2.5512729, 1.8939167)
 
 [node name="PivotPuertaDerecha" type="Node3D" parent="PivotArmario/Armario" unique_id=671319926]
@@ -48,7 +48,7 @@ script = ExtResource("2_tbgi4")
 [node name="InputPuertaDerecha" type="Area3D" parent="PivotArmario/Armario/PivotPuertaDerecha" unique_id=1579350233]
 transform = Transform3D(0.13208336, 7.0431704e-15, -0.9912386, -7.04317e-15, 0.99999976, 6.1669284e-15, 0.9912386, 6.166937e-15, 0.13208336, 0.08586928, 0.74825823, 0.6379869)
 
-[node name="PuertaDerecha" parent="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=1781237719 instance=ExtResource("2_jyhfs")]
+[node name="PuertaDerecha" parent="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=161350427 instance=ExtResource("2_jyhfs")]
 transform = Transform3D(3.0253477, -9.313226e-10, -8.326673e-17, 6.6968542e-21, -1.1996013e-07, 2.75, 4.656613e-10, -2.7443693, -1.2020632e-07, -2.180404, -2.782664, 1.1228361)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=961987987]
@@ -73,7 +73,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ya4ey")
 [node name="InputPuertaIzquierda" type="Area3D" parent="PivotArmario/Armario/PivotPuertaIzquierda" unique_id=1034834399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14557368, 0, 0.007733673)
 
-[node name="PuertaIzquierda" parent="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=235105716 instance=ExtResource("3_tbgi4")]
+[node name="PuertaIzquierda" parent="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=1391792378 instance=ExtResource("3_tbgi4")]
 transform = Transform3D(3.0115814, 0.23937812, 1.0491302e-08, 6.3282712e-15, -1.198883e-07, 2.7499993, 0.2638499, -2.7322598, -1.197476e-07, -0.37912875, -2.4429033, 1.1500784)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=249387504]
@@ -100,25 +100,25 @@ light_color = Color(1, 0, 1, 1)
 [node name="FanDerInf" parent="PivotArmario/Armario" unique_id=695988897 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.0658141e-14, 0, 1.0658141e-14, 1, -0.095024064, 0.7980431, 0.8920816)
 
-[node name="FanMidInf" parent="PivotArmario/Armario" unique_id=1982389053 instance=ExtResource("8_tipki")]
+[node name="FanMidInf" parent="PivotArmario/Armario" unique_id=1452958486 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.0658141e-14, 0, 1.0658141e-14, 1, 0.15553328, 0.7994223, 0.8914329)
 
-[node name="FanIzqInf" parent="PivotArmario/Armario" unique_id=2054830836 instance=ExtResource("8_tipki")]
+[node name="FanIzqInf" parent="PivotArmario/Armario" unique_id=562646338 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40678096, 0.7992865, 0.89185834)
 
-[node name="FanDerSup" parent="PivotArmario/Armario" unique_id=58500658 instance=ExtResource("8_tipki")]
+[node name="FanDerSup" parent="PivotArmario/Armario" unique_id=538331400 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09658283, 0.80389774, 1.3234531)
 
-[node name="FanMidSup" parent="PivotArmario/Armario" unique_id=1974084429 instance=ExtResource("8_tipki")]
+[node name="FanMidSup" parent="PivotArmario/Armario" unique_id=1639221960 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15252799, 0.80100423, 1.3210412)
 
-[node name="FanIzqSup" parent="PivotArmario/Armario" unique_id=149510130 instance=ExtResource("8_tipki")]
+[node name="FanIzqSup" parent="PivotArmario/Armario" unique_id=833877635 instance=ExtResource("8_tipki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4021315, 0.8001936, 1.321834)
 
-[node name="FanIzqLat" parent="PivotArmario/Armario" unique_id=1270129171 instance=ExtResource("8_tipki")]
+[node name="FanIzqLat" parent="PivotArmario/Armario" unique_id=1028798892 instance=ExtResource("8_tipki")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 1.2705494e-21, 1, -0.2804136, 0.58325803, 0.91179276)
 
-[node name="FanDerLat" parent="PivotArmario/Armario" unique_id=1853428304 instance=ExtResource("8_tipki")]
+[node name="FanDerLat" parent="PivotArmario/Armario" unique_id=780124290 instance=ExtResource("8_tipki")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 6.352747e-22, 1, 0.60959405, 0.5708741, 0.91238236)
 
 [node name="AditivosLabel" type="Label3D" parent="PivotArmario" unique_id=1047607798]

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bggf4dc6n0of3"]
 
 [ext_resource type="Script" uid="uid://cw7cthnbwwlhg" path="res://scripts/hud.gd" id="1_brbbq"]
-[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="2_8n18e"]
-[ext_resource type="PackedScene" uid="uid://d37non7sppph7" path="res://scenes/toggle_item.tscn" id="3_tjwpk"]
+[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="2_8n18e"]
+[ext_resource type="PackedScene" uid="uid://d37non7sppph7" path="res://scenes/ui/toggle_item.tscn" id="3_tjwpk"]
 
 [node name="Control" type="Control" unique_id=509654155]
 layout_mode = 3

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://crqquhp2ibmuw"
-path="res://.godot/imported/aspas_fan.gltf-0932b167d40b6b28f8eb40b6d9ab63fb.scn"
+path="res://.godot/imported/aspas_fan.gltf-d7b982846de4f86313ed6fb1f8d0a965.scn"
 
 [deps]
 
-source_file="res://3d_models/aspas_fan.gltf"
-dest_files=["res://.godot/imported/aspas_fan.gltf-0932b167d40b6b28f8eb40b6d9ab63fb.scn"]
+source_file="res://assets/3d/components/fan/aspas_fan.gltf"
+dest_files=["res://.godot/imported/aspas_fan.gltf-d7b982846de4f86313ed6fb1f8d0a965.scn"]
 
 [params]
 

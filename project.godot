@@ -28,11 +28,13 @@ window/handheld/orientation=1
 [file_customization]
 
 folder_colors={
-"res://3d_models/": "pink",
-"res://resources/": "purple",
-"res://scenes/": "blue",
-"res://scripts/": "teal",
-"res://textures/": "green"
+"res://android/": "red",
+"res://assets/": "orange",
+"res://assets/3d/": "orange",
+"res://assets/images/": "orange",
+"res://resources/": "yellow",
+"res://scenes/": "green",
+"res://scripts/": "teal"
 }
 
 [physics]

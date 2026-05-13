@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b85rqbkg63r3b"
-path="res://.godot/imported/ArduinoMega.glb-3df003f9a5d99a1ef6452ddc5695afac.scn"
+uid="uid://b0msxy5u8ih61"
+path="res://.godot/imported/PuertaDerecha.gltf-c5a1323e7fa3f3f542f3c0c3902d0ecf.scn"
 
 [deps]
 
-source_file="res://3d_models/ArduinoMega.glb"
-dest_files=["res://.godot/imported/ArduinoMega.glb-3df003f9a5d99a1ef6452ddc5695afac.scn"]
+source_file="res://assets/3d/cupboard/PuertaDerecha.gltf"
+dest_files=["res://.godot/imported/PuertaDerecha.gltf-c5a1323e7fa3f3f542f3c0c3902d0ecf.scn"]
 
 [params]
 

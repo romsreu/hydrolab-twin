@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b0msxy5u8ih61"
-path="res://.godot/imported/PuertaDerecha.gltf-4d698c3f646664c21c7c7882092256c1.scn"
+uid="uid://d6yfuwu1aahq"
+path="res://.godot/imported/hydro_virtualization_v1.gltf-b693aea9d51d7dd76a328f279aa7df44.scn"
 
 [deps]
 
-source_file="res://3d_models/PuertaDerecha.gltf"
-dest_files=["res://.godot/imported/PuertaDerecha.gltf-4d698c3f646664c21c7c7882092256c1.scn"]
+source_file="res://assets/3d/cupboard/hydro_virtualization_v1.gltf"
+dest_files=["res://.godot/imported/hydro_virtualization_v1.gltf-b693aea9d51d7dd76a328f279aa7df44.scn"]
 
 [params]
 

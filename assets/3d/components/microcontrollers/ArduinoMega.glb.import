@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d6yfuwu1aahq"
-path="res://.godot/imported/hydro_virtualization_v1.gltf-24e785c8303030ee693cd96a4c6862d8.scn"
+uid="uid://b85rqbkg63r3b"
+path="res://.godot/imported/ArduinoMega.glb-a37db15c17688b68fbe2a40258cca546.scn"
 
 [deps]
 
-source_file="res://3d_models/hydro_virtualization_v1.gltf"
-dest_files=["res://.godot/imported/hydro_virtualization_v1.gltf-24e785c8303030ee693cd96a4c6862d8.scn"]
+source_file="res://assets/3d/components/microcontrollers/ArduinoMega.glb"
+dest_files=["res://.godot/imported/ArduinoMega.glb-a37db15c17688b68fbe2a40258cca546.scn"]
 
 [params]
 

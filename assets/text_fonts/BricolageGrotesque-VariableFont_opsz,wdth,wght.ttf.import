@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dufj1l6ij21hr"
-path="res://.godot/imported/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf-f4c63d9ce5df1c4a45f1a2d1663076c1.fontdata"
+path="res://.godot/imported/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf-25e8884d29291134463c5996ebafe97b.fontdata"
 
 [deps]
 
-source_file="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf"
-dest_files=["res://.godot/imported/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf-f4c63d9ce5df1c4a45f1a2d1663076c1.fontdata"]
+source_file="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf"
+dest_files=["res://.godot/imported/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf-25e8884d29291134463c5996ebafe97b.fontdata"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d37non7sppph7"]
 
 [ext_resource type="Script" uid="uid://cud4wb5swngbs" path="res://scripts/toggle_item.gd" id="1_w6q2v"]
-[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="2_81yek"]
+[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="2_81yek"]
 
 [node name="ToggleItem" type="Button" unique_id=361502554]
 custom_minimum_size = Vector2(100, 100)

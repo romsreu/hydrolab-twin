@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bdqeuxuaivvn7"]
 
-[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://resources/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="1_1670a"]
-[ext_resource type="Texture2D" uid="uid://cmd5kh4leq3qv" path="res://resources/732c0abf-1a08-4e6f-8461-cc1f3b15bd7d.jpg" id="1_dmsei"]
-[ext_resource type="PackedScene" uid="uid://dp5w7hcf00ryq" path="res://scenes/main.tscn" id="2_dmsei"]
-[ext_resource type="Texture2D" uid="uid://dqjhubm2p7j4j" path="res://scenes/settings_button.png" id="5_awiwq"]
-[ext_resource type="Texture2D" uid="uid://d1jge3kkrw8tm" path="res://scenes/icons.png" id="6_k6d74"]
-[ext_resource type="Texture2D" uid="uid://b6i8njqdihmc6" path="res://scenes/icons(1).png" id="7_ljqyw"]
+[ext_resource type="Texture2D" uid="uid://cmd5kh4leq3qv" path="res://assets/images/backgrounds/732c0abf-1a08-4e6f-8461-cc1f3b15bd7d.jpg" id="1_jd13o"]
+[ext_resource type="PackedScene" uid="uid://dp5w7hcf00ryq" path="res://scenes/3d/cupboard/cupboard.tscn" id="2_l1oqf"]
+[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="3_4b1r4"]
+[ext_resource type="Texture2D" uid="uid://dqjhubm2p7j4j" path="res://assets/images/ui/buttons/settings.png" id="4_vbdsi"]
+[ext_resource type="Texture2D" uid="uid://d1jge3kkrw8tm" path="res://assets/images/ui/buttons/visualization.png" id="5_kwsq6"]
+[ext_resource type="Texture2D" uid="uid://b6i8njqdihmc6" path="res://assets/images/ui/buttons/dashboard.png" id="6_j5hx5"]
 
 [sub_resource type="Gradient" id="Gradient_cl6f3"]
 colors = PackedColorArray(0.15784994, 0.6361196, 0.41127422, 1, 0.5686275, 0.8, 0.93333334, 1)
@@ -34,7 +34,7 @@ offset_top = -154.0
 offset_right = 301.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_dmsei")
+texture = ExtResource("1_jd13o")
 expand_mode = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1378125589]
@@ -55,7 +55,7 @@ handle_input_locally = false
 size = Vector2i(1080, 1551)
 render_target_update_mode = 4
 
-[node name="Main" parent="SubViewportContainer/SubViewport" unique_id=1631033161 instance=ExtResource("2_dmsei")]
+[node name="Main" parent="SubViewportContainer/SubViewport" unique_id=1631033161 instance=ExtResource("2_l1oqf")]
 
 [node name="Control" type="Control" parent="." unique_id=761652461]
 layout_mode = 1
@@ -96,9 +96,9 @@ offset_top = -75.0
 offset_right = 150.0
 offset_bottom = 75.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_1670a")
+theme_override_fonts/font = ExtResource("3_4b1r4")
 theme_override_font_sizes/font_size = 30
-icon = ExtResource("5_awiwq")
+icon = ExtResource("4_vbdsi")
 flat = true
 expand_icon = true
 
@@ -115,9 +115,9 @@ offset_right = 75.0
 offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_1670a")
+theme_override_fonts/font = ExtResource("3_4b1r4")
 theme_override_font_sizes/font_size = 30
-icon = ExtResource("6_k6d74")
+icon = ExtResource("5_kwsq6")
 flat = true
 expand_icon = true
 
@@ -133,8 +133,8 @@ offset_top = -75.0
 offset_bottom = 75.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_1670a")
+theme_override_fonts/font = ExtResource("3_4b1r4")
 theme_override_font_sizes/font_size = 30
-icon = ExtResource("7_ljqyw")
+icon = ExtResource("6_j5hx5")
 flat = true
 expand_icon = true

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ca4v8363grd80"
-path="res://.godot/imported/socket_fan.gltf-f5cb37c20a3134cd1276577b4872842a.scn"
+uid="uid://b4drjapdr2tbj"
+path="res://.godot/imported/PuertaIzquierda.gltf-ea56542b5490549f474b9d4cb99229de.scn"
 
 [deps]
 
-source_file="res://3d_models/socket_fan.gltf"
-dest_files=["res://.godot/imported/socket_fan.gltf-f5cb37c20a3134cd1276577b4872842a.scn"]
+source_file="res://assets/3d/cupboard/PuertaIzquierda.gltf"
+dest_files=["res://.godot/imported/PuertaIzquierda.gltf-ea56542b5490549f474b9d4cb99229de.scn"]
 
 [params]
 
