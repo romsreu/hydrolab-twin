@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="hydro_virtualization"
+config/name="Lahi"
+config/description="Virtualizacion de laboratorio autocontenido hidroponico de industria 4.0.
+Permite la visualizacion de estado en tiempo real, datos y control remoto del sistema."
 run/main_scene="uid://bdqeuxuaivvn7"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="uid://devkpyej4854u"
+config/icon="uid://bbjs5epms58l2"
 
 [display]
 
