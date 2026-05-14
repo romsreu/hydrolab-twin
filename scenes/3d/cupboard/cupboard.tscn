@@ -58,6 +58,7 @@ debug_color = Color(0.010181468, 0.0017466176, 0.008044679, 1)
 
 [node name="Texture" type="MeshInstance3D" parent="PivotArmario/Armario/PivotPuertaDerecha" unique_id=225710004]
 transform = Transform3D(0.088511474, -0.9854769, 9.979307e-08, -2.5872344e-15, -4.3482462e-08, -2.3045118, 0.6432297, 0.13560635, -1.373202e-08, -0.09417236, 0.09163928, -0.65718484)
+visible = false
 mesh = SubResource("PlaneMesh_ya4ey")
 surface_material_override/0 = SubResource("StandardMaterial3D_eb6dy")
 
@@ -67,6 +68,7 @@ script = ExtResource("3_jyhfs")
 
 [node name="Texture" type="MeshInstance3D" parent="PivotArmario/Armario/PivotPuertaIzquierda" unique_id=1446733035]
 transform = Transform3D(-0.63828635, 0.10681212, 4.211307e-07, -1.0715703e-07, 5.1300475e-09, -2.296287, -0.061954707, -1.1004287, 3.0172245e-08, -0.66375244, -0.31426263, -0.0725573)
+visible = false
 mesh = SubResource("PlaneMesh_choun")
 surface_material_override/0 = SubResource("StandardMaterial3D_ya4ey")
 

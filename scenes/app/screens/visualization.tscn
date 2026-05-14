@@ -13,6 +13,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="." unique_id=215566945]
 transparent_bg = true
 handle_input_locally = false
+physics_object_picking = true
 size = Vector2i(1080, 1920)
 render_target_update_mode = 4
 

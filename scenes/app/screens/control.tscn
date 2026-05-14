@@ -13,21 +13,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_g1yps")
 
-[node name="MainOptionsContainer" type="PanelContainer" parent="." unique_id=1576458028]
+[node name="MainOptionsContainer" type="Control" parent="." unique_id=707836461]
 clip_contents = true
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.347
-anchor_bottom = 1.0
-offset_right = -64.34401
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -206.0
+offset_right = 353.0
+offset_bottom = 206.0
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="MainOptionsContainer" unique_id=470151527]
-layout_mode = 2
-color = Color(0.3372549, 0.57254905, 0.16078432, 1)
-
 [node name="MainButtons" type="VBoxContainer" parent="MainOptionsContainer" unique_id=1895795269]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BombasButton" type="Button" parent="MainOptionsContainer/MainButtons" unique_id=764749246]
 custom_minimum_size = Vector2(100, 100)
@@ -50,23 +54,33 @@ theme_override_fonts/font = ExtResource("2_k0fmc")
 theme_override_font_sizes/font_size = 32
 text = "VENTILADORES"
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1394513587]
+[node name="PanelContainer" type="Control" parent="." unique_id=829305158]
 clip_contents = true
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.24700001
-anchor_top = 0.0050000004
-anchor_right = 1.0020001
-anchor_bottom = 1.0
-offset_left = 58.944
-offset_top = -2.7600002
-offset_right = -0.3040161
-
-[node name="ColorRect" type="ColorRect" parent="PanelContainer" unique_id=843894767]
-layout_mode = 2
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -727.0
+offset_top = -206.0
+offset_bottom = 206.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="LucesContainer" type="PanelContainer" parent="PanelContainer" unique_id=864541534]
-layout_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -727.0
+offset_top = -206.0
+offset_bottom = 206.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/LucesContainer" unique_id=2091021123]
 layout_mode = 2
@@ -87,16 +101,32 @@ label_text = "UV INFERIOR IZQUIERDA"
 layout_mode = 2
 label_text = "UV INFERIOR IZQUIERDA"
 
-[node name="VentiladoresContainer" type="PanelContainer" parent="PanelContainer" unique_id=186311140]
-visible = false
-layout_mode = 2
+[node name="VentiladoresContainer" type="Control" parent="PanelContainer" unique_id=1071386023]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -727.0
+offset_top = -209.0
+offset_bottom = 99.0
+grow_horizontal = 0
+grow_vertical = 2
+metadata/_edit_group_ = true
 
 [node name="VScrollBar" type="ScrollContainer" parent="PanelContainer/VentiladoresContainer" unique_id=1108340175]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VentiladoresContainer/VScrollBar" unique_id=873328284]
-custom_minimum_size = Vector2(860, 0)
+custom_minimum_size = Vector2(720, 0)
 layout_mode = 2
 
 [node name="VentLatIzq" parent="PanelContainer/VentiladoresContainer/VScrollBar/VBoxContainer" unique_id=493555083 instance=ExtResource("3_enta7")]
