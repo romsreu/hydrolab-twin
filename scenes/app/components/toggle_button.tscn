@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://22ls2jowtvm7"]
+
+[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="1_rttsl"]
+[ext_resource type="Script" uid="uid://ddfpjf8e8mbyq" path="res://scripts/toggle_button.gd" id="1_v156u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rttsl"]
+bg_color = Color(0, 0.8862745, 0, 0.21176471)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.17247385, 0.7890329, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0.56078434, 0, 0.43137255)
+shadow_size = 5
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m413s"]
+bg_color = Color(0.8901961, 0.3019608, 0.34901962, 0.6156863)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7456039, 0.19246292, 0.0736916, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.88235295, 0, 0, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(1, 1)
+
+[node name="ToggleButton" type="Button" unique_id=1269960313]
+offset_right = 182.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("1_rttsl")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rttsl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_m413s")
+toggle_mode = true
+script = ExtResource("1_v156u")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]
