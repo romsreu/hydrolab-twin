@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b7mogwcny501y"]
+
+[ext_resource type="PackedScene" uid="uid://dp5w7hcf00ryq" path="res://scenes/3d/cupboard/Cupboard.tscn" id="1_lq3fy"]
+
+[node name="Visualization" type="SubViewportContainer" unique_id=1129756720]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=215566945]
+transparent_bg = true
+handle_input_locally = false
+physics_object_picking = true
+size = Vector2i(1080, 1920)
+render_target_update_mode = 4
+
+[node name="Cupboard" parent="SubViewport" unique_id=1631033161 instance=ExtResource("1_lq3fy")]

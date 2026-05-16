@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjwud6rbok02r"]
 
 [ext_resource type="Script" uid="uid://cgdp3c5vei2j0" path="res://scripts/status_card.gd" id="1_5175s"]
-[ext_resource type="Texture2D" uid="uid://bbjs5epms58l2" path="res://assets/images/app/iconv2.png" id="2_n6nej"]
+[ext_resource type="Texture2D" uid="uid://c82g4n86nbpfd" path="res://assets/images/icons/cards/preferences(1).png" id="2_bgsvc"]
 [ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="3_bgsvc"]
 [ext_resource type="FontFile" uid="uid://dqfyc72stu5t5" path="res://assets/text_fonts/Inter-VariableFont_opsz,wght.ttf" id="3_n6nej"]
 [ext_resource type="PackedScene" uid="uid://22ls2jowtvm7" path="res://scenes/app/components/ToggleButton.tscn" id="3_vjski"]
@@ -30,16 +30,17 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_n6nej")
 script = ExtResource("1_5175s")
 
 [node name="CardIcon" type="TextureRect" parent="." unique_id=807732654]
+self_modulate = Color(0.5792445, 1.1293287, 0.735731, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -81.35416
-offset_top = 36.0
-offset_right = 81.35416
-offset_bottom = 178.0
+offset_left = -63.17708
+offset_top = 29.0
+offset_right = 63.17708
+offset_bottom = 139.0
 grow_horizontal = 2
-texture = ExtResource("2_n6nej")
+texture = ExtResource("2_bgsvc")
 expand_mode = 1
 
 [node name="CategoryLabel" type="Label" parent="CardIcon" unique_id=1668807734]
@@ -50,13 +51,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -145.35416
-offset_top = 18.0
+offset_top = 25.0
 offset_right = 142.64584
-offset_bottom = 42.16667
+offset_bottom = 67.29167
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_bgsvc")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 35
 text = "CATEGORÍA"
 horizontal_alignment = 1
 
@@ -68,13 +69,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -144.0
-offset_top = -0.16667175
+offset_top = -4.166668
 offset_right = 144.0
-offset_bottom = 22.833328
+offset_bottom = 27.833332
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_n6nej")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 25
 text = "ESPECIFICIDAD"
 horizontal_alignment = 1
 

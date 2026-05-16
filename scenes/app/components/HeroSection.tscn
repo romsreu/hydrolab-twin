@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://c6u0j4euqtlsn"]
+
+[ext_resource type="Texture2D" uid="uid://dsy7hdnty4pr" path="res://assets/images/slides/slide1.png" id="1_mvan2"]
+
+[sub_resource type="GDScript" id="GDScript_s8tc7"]
+script/source = "extends Panel
+
+@onready var slides_container: ScrollContainer = $SlidesContainer
+@onready var h_box_container: HBoxContainer = $SlidesContainer/HBoxContainer
+@onready var dots_container: HBoxContainer = $DotsContainer
+@onready var timer: Timer = $Timer
+
+#const AUTO_SCROLL_TIME := 5.0
+#const TWEEN_DURATION   := 0.4
+#const COLOR_DOT_ACTIVE   := Color(\"#4caf50\")
+#const COLOR_DOT_INACTIVE := Color(\"#444444\")
+#const DOT_SIZE := 10
+#
+#var _slides: Array[TextureRect]
+#var _dots: Array[Panel]
+#var _current: int = 0
+#var _slide_width: float = 0.0
+#var _tween: Tween
+#
+#
+#func _ready() -> void:
+	#for child in h_box_container.get_children():
+		#if child is TextureRect:
+			#_slides.append(child)
+#
+	#await get_tree().process_frame
+	#_slide_width = slides_container.size.x
+#
+	#for slide in _slides:
+		#slide.custom_minimum_size.x = _slide_width
+#
+	#_build_dots()
+#
+	#timer.wait_time = AUTO_SCROLL_TIME
+	#timer.timeout.connect(_on_timer_timeout)
+	#timer.start()
+#
+	#_go_to(0)
+#
+#
+#func _build_dots() -> void:
+	#for i in _slides.size():
+		#var dot := Panel.new()
+		#dot.custom_minimum_size = Vector2(DOT_SIZE, DOT_SIZE)
+		#dot.add_theme_stylebox_override(\"panel\", _dot_style(COLOR_DOT_INACTIVE))
+		#dots_container.add_child(dot)
+		#_dots.append(dot)
+#
+#
+#func _dot_style(color: Color) -> StyleBoxFlat:
+	#var sb := StyleBoxFlat.new()
+	#sb.bg_color = color
+	#sb.set_corner_radius_all(DOT_SIZE / 2)  # circulo perfecto
+	#return sb
+#
+#
+#func _go_to(index: int) -> void:
+	#_current = index
+#
+	#if _tween:
+		#_tween.kill()
+	#_tween = create_tween()
+	#_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	#_tween.tween_property(slides_container, \"scroll_horizontal\", int(_slide_width * _current), TWEEN_DURATION)
+#
+	#for i in _dots.size():
+		#var color := COLOR_DOT_ACTIVE if i == _current else COLOR_DOT_INACTIVE
+		#_dots[i].add_theme_stylebox_override(\"panel\", _dot_style(color))
+#
+#
+#func _on_timer_timeout() -> void:
+	#_go_to((_current + 1) % _slides.size())
+"
+
+[node name="HeroSection" type="Panel" unique_id=305599669]
+custom_minimum_size = Vector2(850, 595)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -425.0
+offset_right = 425.0
+offset_bottom = 595.0
+grow_horizontal = 2
+script = SubResource("GDScript_s8tc7")
+
+[node name="SlidesContainer" type="ScrollContainer" parent="." unique_id=1512794259]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SlidesContainer" unique_id=167375728]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="SlidesContainer/HBoxContainer" unique_id=1834546159]
+layout_mode = 2
+texture = ExtResource("1_mvan2")
+expand_mode = 3
+
+[node name="DotsContainer" type="HBoxContainer" parent="." unique_id=1700579609]
+visible = false
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.126
+offset_bottom = 0.029968262
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=312432022]
