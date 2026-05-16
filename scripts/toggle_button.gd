@@ -12,11 +12,11 @@ var _style_off: StyleBox
 
 
 func _ready() -> void:
-	button_pressed = is_on
 	focus_mode = Control.FOCUS_NONE
-	# Guardar los estilos originales del editor ANTES de cualquier override
+	# Primero guardar estilos
 	_style_on  = get_theme_stylebox("normal").duplicate()
 	_style_off = get_theme_stylebox("normal_mirrored").duplicate()
+	button_pressed = is_on
 	_update_style()
 
 

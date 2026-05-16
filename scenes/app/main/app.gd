@@ -1,42 +1,35 @@
 extends Control
 
-@onready var screens := {
-	"visualization": $MenuPanel/Visualization,
-	"config": $MenuPanel/Configuration,
-}
+@onready var view: Control = $View
 
-@onready var buttons := {
-	"visualization": $BottomNav/VisualizationButton,
-	"config": $BottomNav/ConfigButton,
-	"dashboard": $BottomNav/DashboardButton,
-}
+const INICIO        = preload("uid://bggf4dc6n0of3")
+const VISUALIZATION = preload("uid://b7mogwcny501y")
 
-var current := ""
+var _views: Dictionary
+
 
 func _ready() -> void:
-	for key in buttons:
-		buttons[key].pivot_offset = buttons[key].size / 2.0
-	_nav_to("visualization")
+	_views = {
+		"Dashboard":      INICIO.instantiate(),
+		"Virtualization": VISUALIZATION.instantiate(),
+	}
 
-func _nav_to(name: String) -> void:
-	if name == current or not screens.has(name):
-		return
-	for key in screens:
-		screens[key].visible = (key == name)
-	for key in buttons:
-		_tween_btn(buttons[key], key == name)
-	current = name
+	for v in _views.values():
+		v.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		v.visible = false
+		view.add_child(v)
 
-func _tween_btn(btn: Control, active: bool) -> void:
-	var tw := create_tween()
-	tw.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-	tw.tween_property(btn, "scale", Vector2(1.2, 1.2) if active else Vector2.ONE, 0.2)
+	_show_view("Dashboard")
 
-func _on_config_button_pressed() -> void:
-	_nav_to("config")
 
-func _on_visualization_button_pressed() -> void:
-	_nav_to("visualization")
+func _show_view(view_name: String) -> void:
+	for key in _views:
+		_views[key].visible = (key == view_name)
 
-func _on_dashboard_button_pressed() -> void:
-	_nav_to("dashboard")
+
+func _on_bottom_navbar_view_changed(view: String) -> void:
+	_show_view(view)
+
+
+func _on_bottom_navbar_tab_changed(tab: String) -> void:
+	pass

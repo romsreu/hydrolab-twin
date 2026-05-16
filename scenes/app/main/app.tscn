@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://bdqeuxuaivvn7"]
 
 [ext_resource type="Script" uid="uid://dgausbfyblt7q" path="res://scenes/app/main/app.gd" id="1_4b1r4"]
-[ext_resource type="PackedScene" uid="uid://bggf4dc6n0of3" path="res://scenes/app/screens/control.tscn" id="2_l1oqf"]
-[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="3_4b1r4"]
-[ext_resource type="PackedScene" uid="uid://b7mogwcny501y" path="res://scenes/app/screens/visualization.tscn" id="3_vbdsi"]
-[ext_resource type="Texture2D" uid="uid://dqjhubm2p7j4j" path="res://assets/images/ui/buttons/settings.png" id="4_vbdsi"]
-[ext_resource type="Texture2D" uid="uid://d1jge3kkrw8tm" path="res://assets/images/ui/buttons/visualization.png" id="5_kwsq6"]
-[ext_resource type="Texture2D" uid="uid://b6i8njqdihmc6" path="res://assets/images/ui/buttons/dashboard.png" id="6_j5hx5"]
+[ext_resource type="PackedScene" uid="uid://cufm3lsi6iio1" path="res://scenes/app/BottomNavbar.tscn" id="2_7p3a5"]
 
 [sub_resource type="Gradient" id="Gradient_l1oqf"]
 colors = PackedColorArray(0.1254902, 0.1254902, 0.1254902, 1, 0, 0, 0, 1)
@@ -32,96 +27,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -286.0
-offset_top = -154.0
-offset_right = 301.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_4b1r4")
 expand_mode = 1
 
-[node name="MenuPanel" type="Control" parent="." unique_id=233635140]
+[node name="View" type="Control" parent="." unique_id=1518298428]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.87100005
-offset_bottom = -0.32006836
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Visualization" parent="MenuPanel" unique_id=1129756720 instance=ExtResource("3_vbdsi")]
-visible = false
-layout_mode = 1
-
-[node name="Configuration" parent="MenuPanel" unique_id=509654155 instance=ExtResource("2_l1oqf")]
-visible = false
-layout_mode = 1
-
-[node name="BottomNav" type="Control" parent="." unique_id=1497880004]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -308.25
-offset_top = -220.0
-offset_right = 308.25
-offset_bottom = -43.11084
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="ConfigButton" type="Button" parent="BottomNav" unique_id=394859540]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -75.0
-offset_right = 150.0
-offset_bottom = 75.0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_4b1r4")
-theme_override_font_sizes/font_size = 30
-icon = ExtResource("4_vbdsi")
-flat = true
-expand_icon = true
-
-[node name="VisualizationButton" type="Button" parent="BottomNav" unique_id=492569233]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_4b1r4")
-theme_override_font_sizes/font_size = 30
-icon = ExtResource("5_kwsq6")
-flat = true
-expand_icon = true
 
-[node name="DashboardButton" type="Button" parent="BottomNav" unique_id=171083689]
+[node name="BottomNavbar" parent="." unique_id=356294177 instance=ExtResource("2_7p3a5")]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -75.0
-offset_bottom = 75.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_4b1r4")
-theme_override_font_sizes/font_size = 30
-icon = ExtResource("6_j5hx5")
-flat = true
-expand_icon = true
+anchor_top = 0.915
+offset_top = 0.19995117
 
-[connection signal="pressed" from="BottomNav/ConfigButton" to="." method="_on_config_button_pressed"]
-[connection signal="pressed" from="BottomNav/VisualizationButton" to="." method="_on_visualization_button_pressed"]
-[connection signal="pressed" from="BottomNav/DashboardButton" to="." method="_on_dashboard_button_pressed"]
+[connection signal="tab_changed" from="BottomNavbar" to="." method="_on_bottom_navbar_tab_changed"]
+[connection signal="view_changed" from="BottomNavbar" to="." method="_on_bottom_navbar_view_changed"]

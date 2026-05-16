@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bggf4dc6n0of3"]
+
+[ext_resource type="Script" uid="uid://cw7cthnbwwlhg" path="res://scripts/hud.gd" id="1_g1yps"]
+[ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="2_k0fmc"]
+[ext_resource type="PackedScene" uid="uid://chfkoylxsm5t5" path="res://HeroSection.tscn" id="2_labcf"]
+[ext_resource type="PackedScene" uid="uid://bjwud6rbok02r" path="res://scenes/app/components/StatusCard.tscn" id="3_labcf"]
+[ext_resource type="PackedScene" uid="uid://ciayiuvl4ski8" path="res://scenes/app/SensorCard.tscn" id="5_labcf"]
+
+[node name="Inicio" type="Control" unique_id=509654155]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g1yps")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=827450951]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 150
+
+[node name="HeroSection" parent="VBoxContainer" unique_id=305599669 instance=ExtResource("2_labcf")]
+layout_mode = 2
+
+[node name="StatusCards" type="Control" parent="VBoxContainer" unique_id=238799877]
+custom_minimum_size = Vector2(1080, 357)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/StatusCards" unique_id=1246124229]
+layout_mode = 1
+offset_top = 18.0
+offset_right = 284.0
+offset_bottom = 54.25
+theme_override_fonts/font = ExtResource("2_k0fmc")
+theme_override_font_sizes/font_size = 30
+text = "CONTROL DEL SISTEMA"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/StatusCards/Label" unique_id=371053851]
+layout_mode = 0
+offset_top = 46.0
+offset_right = 1080.0
+offset_bottom = 403.0
+
+[node name="StatusCardsRow" type="HBoxContainer" parent="VBoxContainer/StatusCards/Label/ScrollContainer" unique_id=1402577645]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="StatusCard" parent="VBoxContainer/StatusCards/Label/ScrollContainer/StatusCardsRow" unique_id=836174084 instance=ExtResource("3_labcf")]
+layout_mode = 2
+
+[node name="StatusCard2" parent="VBoxContainer/StatusCards/Label/ScrollContainer/StatusCardsRow" unique_id=792342951 instance=ExtResource("3_labcf")]
+layout_mode = 2
+
+[node name="StatusCard3" parent="VBoxContainer/StatusCards/Label/ScrollContainer/StatusCardsRow" unique_id=1987782591 instance=ExtResource("3_labcf")]
+layout_mode = 2
+
+[node name="StatusCard4" parent="VBoxContainer/StatusCards/Label/ScrollContainer/StatusCardsRow" unique_id=579292572 instance=ExtResource("3_labcf")]
+layout_mode = 2
+
+[node name="SensorCards" type="Control" parent="VBoxContainer" unique_id=1354229405]
+custom_minimum_size = Vector2(1080, 357)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SensorCards" unique_id=1987051976]
+layout_mode = 0
+offset_top = -48.0
+offset_right = 340.0
+offset_bottom = 3.0
+theme_override_fonts/font = ExtResource("2_k0fmc")
+theme_override_font_sizes/font_size = 30
+text = "MONITOREO DEL SISTEMA"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/SensorCards" unique_id=1922725206]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 357.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/SensorCards/ScrollContainer" unique_id=186429444]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SensorCard" parent="VBoxContainer/SensorCards/ScrollContainer/HBoxContainer" unique_id=1199411364 instance=ExtResource("5_labcf")]
+layout_mode = 2
+
+[node name="SensorCard2" parent="VBoxContainer/SensorCards/ScrollContainer/HBoxContainer" unique_id=1917323119 instance=ExtResource("5_labcf")]
+layout_mode = 2
+
+[node name="SensorCard3" parent="VBoxContainer/SensorCards/ScrollContainer/HBoxContainer" unique_id=1726011174 instance=ExtResource("5_labcf")]
+layout_mode = 2
+
+[node name="SensorCard4" parent="VBoxContainer/SensorCards/ScrollContainer/HBoxContainer" unique_id=747598493 instance=ExtResource("5_labcf")]
+layout_mode = 2
