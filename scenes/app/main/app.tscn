@@ -53,6 +53,7 @@ visible = false
 layout_mode = 1
 
 [node name="Configuration" parent="MenuPanel" unique_id=509654155 instance=ExtResource("2_l1oqf")]
+visible = false
 layout_mode = 1
 
 [node name="BottomNav" type="Control" parent="." unique_id=1497880004]

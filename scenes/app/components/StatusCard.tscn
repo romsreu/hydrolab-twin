@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bbjs5epms58l2" path="res://assets/images/app/iconv2.png" id="2_n6nej"]
 [ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="3_bgsvc"]
 [ext_resource type="FontFile" uid="uid://dqfyc72stu5t5" path="res://assets/text_fonts/Inter-VariableFont_opsz,wght.ttf" id="3_n6nej"]
-[ext_resource type="PackedScene" uid="uid://22ls2jowtvm7" path="res://scenes/app/components/toggle_button.tscn" id="3_vjski"]
+[ext_resource type="PackedScene" uid="uid://22ls2jowtvm7" path="res://scenes/app/components/ToggleButton.tscn" id="3_vjski"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6nej"]
 bg_color = Color(0.10872076, 0.10872077, 0.10872071, 1)
@@ -24,7 +24,7 @@ anchors_preset = -1
 anchor_right = 0.26700002
 anchor_bottom = 0.17
 offset_right = -0.36001587
-offset_bottom = -0.3999939
+offset_bottom = 30.600006
 theme_override_styles/panel = SubResource("StyleBoxFlat_n6nej")
 script = ExtResource("1_5175s")
 
@@ -33,10 +33,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -80.0
-offset_top = 20.0
-offset_right = 82.70831
-offset_bottom = 162.0
+offset_left = -81.35416
+offset_top = 36.0
+offset_right = 81.35416
+offset_bottom = 178.0
 grow_horizontal = 2
 texture = ExtResource("2_n6nej")
 expand_mode = 1
@@ -85,9 +85,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -84.37837
-offset_top = -87.0
+offset_top = -101.0
 offset_right = 84.37837
-offset_bottom = -31.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
 
