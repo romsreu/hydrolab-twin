@@ -13,14 +13,14 @@ config_version=5
 config/name="Lahi"
 config/description="Virtualizacion de laboratorio autocontenido hidroponico de industria 4.0.
 Permite la visualizacion de estado en tiempo real, datos y control remoto del sistema."
-run/main_scene="uid://bdqeuxuaivvn7"
+run/main_scene="uid://dp5w7hcf00ryq"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="uid://bbjs5epms58l2"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=1920
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/window_width_override=648
 window/size/window_height_override=1152
 window/stretch/mode="canvas_items"

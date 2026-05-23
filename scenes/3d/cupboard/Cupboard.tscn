@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://b4drjapdr2tbj" path="res://assets/3d/cupboard/PuertaIzquierda.gltf" id="8_we4f3"]
 [ext_resource type="PackedScene" uid="uid://byt1vph8s8tyy" path="res://scenes/3d/components/Fan.tscn" id="9_ty3j5"]
 [ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="10_p3vl7"]
-[ext_resource type="PackedScene" uid="uid://bggf4dc6n0of3" path="res://scenes/app/screens/Inicio.tscn" id="11_f88oc"]
 [ext_resource type="Script" uid="uid://bguoue80ef1s3" path="res://scripts/camara_pivot.gd" id="12_2hj53"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
@@ -145,9 +144,6 @@ transform = Transform3D(0.58392394, 0.3604128, -0.7274171, -2.02264e-08, 0.89604
 
 [node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." unique_id=821166996]
 transform = Transform3D(-0.99074787, -0.060252648, 0.12160718, -3.7628688e-08, 0.8960452, 0.4439628, -0.13571545, 0.43985522, -0.8877549, 0.2057364, 6.3664117, -8.8423195)
-
-[node name="Hud" parent="." unique_id=509654155 instance=ExtResource("11_f88oc")]
-visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1967310756]
 environment = SubResource("Environment_a8y0u")
