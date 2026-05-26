@@ -15,7 +15,7 @@ func _open_door() -> void:
 
 	var target = closed_rotation
 	if is_open:
-		target.x = closed_rotation.x + deg_to_rad(open_angle)
+		target.y = closed_rotation.y + deg_to_rad(open_angle)
 
 	if tween:
 		tween.kill()

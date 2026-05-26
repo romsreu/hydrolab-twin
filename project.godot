@@ -15,6 +15,7 @@ config/description="Virtualizacion de laboratorio autocontenido hidroponico de i
 Permite la visualizacion de estado en tiempo real, datos y control remoto del sistema."
 run/main_scene="uid://dp5w7hcf00ryq"
 config/features=PackedStringArray("4.6", "Mobile")
+run/max_fps=60
 config/icon="uid://bbjs5epms58l2"
 
 [display]

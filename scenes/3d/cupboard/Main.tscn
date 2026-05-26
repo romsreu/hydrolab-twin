@@ -3,30 +3,41 @@
 [ext_resource type="Script" uid="uid://g8yyrbk6m3hm" path="res://scripts/main.gd" id="1_dp3xi"]
 [ext_resource type="PackedScene" uid="uid://bt6hkm7mkqoki" path="res://root_cupboard.tscn" id="2_7q10w"]
 [ext_resource type="Script" uid="uid://dndqw65wecnwa" path="res://scripts/pivot_puerta_derecha.gd" id="3_xay52"]
-[ext_resource type="PackedScene" uid="uid://b0msxy5u8ih61" path="res://assets/3d/cupboard/PuertaDerecha.gltf" id="4_qkmlm"]
-[ext_resource type="Texture2D" uid="uid://bcbfchkdyte2a" path="res://assets/images/cupboard/right_door.png" id="5_3kcse"]
+[ext_resource type="PackedScene" uid="uid://bqweukw0lwmmj" path="res://root_right_door.tscn" id="6_3p570"]
 [ext_resource type="Script" uid="uid://0y4yxiv3sua1" path="res://scripts/pivot_puerta_izquierda.gd" id="6_5tejk"]
-[ext_resource type="Texture2D" uid="uid://vjpqeyujd40t" path="res://assets/images/cupboard/left_door.png" id="7_0o0tp"]
-[ext_resource type="PackedScene" uid="uid://b4drjapdr2tbj" path="res://assets/3d/cupboard/PuertaIzquierda.gltf" id="8_oa46i"]
+[ext_resource type="PackedScene" uid="uid://ieknj06ag4ah" path="res://root_door.tscn" id="6_mo7bd"]
+[ext_resource type="Texture2D" uid="uid://c2vxpl3xaihxm" path="res://assets/images/textures/glass/Glass_Frosted_001_basecolor.jpg" id="7_qkmlm"]
+[ext_resource type="Texture2D" uid="uid://dii4njej1byr3" path="res://assets/images/textures/glass/Glass_Frosted_001_ambientOcclusion.jpg" id="8_3kcse"]
+[ext_resource type="Texture2D" uid="uid://b788l07jxdwn0" path="res://assets/images/textures/glass/Glass_Frosted_001_height.png" id="9_5tejk"]
 [ext_resource type="PackedScene" uid="uid://byt1vph8s8tyy" path="res://scenes/3d/components/Fan.tscn" id="9_455xp"]
+[ext_resource type="Texture2D" uid="uid://bfue7fdfu3weg" path="res://assets/images/textures/glass/Glass_Frosted_001_normal.jpg" id="10_0o0tp"]
 [ext_resource type="FontFile" uid="uid://dufj1l6ij21hr" path="res://assets/text_fonts/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf" id="10_ss8qx"]
+[ext_resource type="Texture2D" uid="uid://bgntl8j4x7p82" path="res://assets/images/textures/glass/Glass_Frosted_001_roughness.jpg" id="11_oa46i"]
 [ext_resource type="Script" uid="uid://bguoue80ef1s3" path="res://scripts/camara_pivot.gd" id="11_v3c7d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
-size = Vector3(1.13403, 4.5850296, 0.1340332)
+size = Vector3(1.13403, 4.5527687, 0.1340332)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ya4ey"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_mo7bd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb6dy"]
-albedo_texture = ExtResource("5_3kcse")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_choun"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ya4ey"]
-albedo_texture = ExtResource("7_0o0tp")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3p570"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.27450982)
+albedo_texture = ExtResource("7_qkmlm")
+roughness_texture = ExtResource("11_oa46i")
+normal_enabled = true
+normal_texture = ExtResource("10_0o0tp")
+ao_enabled = true
+ao_light_affect = 0.28
+ao_texture = ExtResource("8_3kcse")
+heightmap_enabled = true
+heightmap_texture = ExtResource("9_5tejk")
+refraction_enabled = true
+refraction_scale = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jyhfs"]
-size = Vector3(1.3115435, 4.6061707, 0.15991211)
+size = Vector3(1.3150735, 4.5861664, 0.15991211)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8s61l"]
 
@@ -48,45 +59,43 @@ transform = Transform3D(3.0000007, -1.2303159e-19, -5.820766e-11, -2.1676888e-19
 
 [node name="PivotPuertaDerecha" type="Node3D" parent="PivotArmario/Armario" unique_id=671319926]
 transform = Transform3D(0.04447763, -1.060762e-14, 0.33035332, -2.2500512e-14, 0.33333388, 2.8125884e-15, -0.33035335, -2.5659035e-14, 0.044477634, 0.582061, 0.70256907, -0.35441273)
-visible = false
 script = ExtResource("3_xay52")
 
 [node name="InputPuertaDerecha" type="Area3D" parent="PivotArmario/Armario/PivotPuertaDerecha" unique_id=1579350233]
 transform = Transform3D(0.13208336, 7.0431704e-15, -0.9912386, -7.04317e-15, 0.99999976, 6.1669284e-15, 0.9912386, 6.166937e-15, 0.13208336, 0.08586928, 0.74825823, 0.6379869)
 
-[node name="PuertaDerecha" parent="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=161350427 instance=ExtResource("4_qkmlm")]
-transform = Transform3D(3.0253477, -9.313226e-10, -8.326673e-17, 6.6968542e-21, -1.1996013e-07, 2.75, 4.656613e-10, -2.7443693, -1.2020632e-07, -2.180404, -2.782664, 1.1228361)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=961987987]
-transform = Transform3D(0.9999972, 1.0889667e-19, -1.14087015e-08, 2.9540274e-20, 1, -3.7947076e-19, 1.14087015e-08, 6.098637e-19, 0.9999972, -1.2623279, -0.6408274, 0.06751183)
+transform = Transform3D(0.99999815, 1.4595436e-19, -1.0826625e-08, 2.8560892e-20, 1, -3.726945e-19, 1.21071935e-08, 7.1828394e-19, 0.99999815, -1.2623279, -0.65695786, 0.067511916)
 shape = SubResource("BoxShape3D_tbgi4")
 debug_color = Color(0.010181468, 0.0017466176, 0.008044679, 1)
 
-[node name="Texture" type="MeshInstance3D" parent="PivotArmario/Armario/PivotPuertaDerecha" unique_id=225710004]
-transform = Transform3D(0.088511445, -0.98547703, 1.0073744e-07, -2.5872348e-15, -4.3482462e-08, -2.32632, 0.6432297, 0.13560633, -1.3861969e-08, -0.09417242, 0.09163904, -0.6571846)
-mesh = SubResource("PlaneMesh_ya4ey")
-surface_material_override/0 = SubResource("StandardMaterial3D_eb6dy")
+[node name="PuertaDerecha2" parent="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" unique_id=1487957710 instance=ExtResource("6_mo7bd")]
+transform = Transform3D(2.8665526, 2.561137e-09, 4.1633363e-17, -4.182225e-21, -1.1982362e-07, 2.749995, 2.0954758e-09, -2.741246, -1.202061e-07, -2.0765061, -2.7238264, 1.1237068)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PivotArmario/Armario/PivotPuertaDerecha" unique_id=1649569001]
+transform = Transform3D(-0.07216941, 0.9751775, -6.964827e-08, -2.1679336e-09, -3.4943078e-08, -2.014671, -0.5163889, -0.13628863, 1.8192289e-08, -0.052366674, -0.01950097, -0.57199335)
+mesh = SubResource("PlaneMesh_mo7bd")
+surface_material_override/0 = SubResource("StandardMaterial3D_3p570")
 
 [node name="PivotPuertaIzquierda" type="Node3D" parent="PivotArmario/Armario" unique_id=1804229504]
-transform = Transform3D(-0.33181718, -2.9192694e-08, -0.03175164, -2.7815544e-08, 0.33333325, -1.5784904e-08, 0.03175164, -1.3063565e-08, -0.3318172, -0.25649214, 0.8440971, -0.35386118)
-visible = false
+transform = Transform3D(-0.3326751, -2.8751838e-08, -0.02093014, -2.7815545e-08, 0.33333328, -1.5784906e-08, 0.020930141, -1.4007215e-08, -0.33267516, -0.25649217, 0.8440971, -0.35386118)
 script = ExtResource("6_5tejk")
-
-[node name="Texture" type="MeshInstance3D" parent="PivotArmario/Armario/PivotPuertaIzquierda" unique_id=1446733035]
-transform = Transform3D(-0.63828665, 0.10681216, 4.2879327e-07, -1.0715703e-07, 5.130051e-09, -2.3380682, -0.061954726, -1.1004293, 3.072124e-08, -0.63193697, -0.34941006, -0.06951144)
-mesh = SubResource("PlaneMesh_choun")
-surface_material_override/0 = SubResource("StandardMaterial3D_ya4ey")
 
 [node name="InputPuertaIzquierda" type="Area3D" parent="PivotArmario/Armario/PivotPuertaIzquierda" unique_id=1034834399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14557368, 0, 0.007733673)
 
-[node name="PuertaIzquierda" parent="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=1391792378 instance=ExtResource("8_oa46i")]
-transform = Transform3D(3.011581, 0.23937812, 1.0491246e-08, -2.0872193e-14, -1.1988827e-07, 2.7499993, 0.2638499, -2.7322598, -1.197476e-07, -0.46302867, -2.4429033, 1.1420455)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=249387504]
-transform = Transform3D(0.99616444, -4.4656843e-09, -0.087538525, 3.8250265e-09, 1, -7.486587e-09, 0.087538525, 7.1229884e-09, 0.99616444, -0.79148304, -0.32121277, -0.09510866)
+transform = Transform3D(0.99616444, -4.46592e-09, -0.087538525, 3.8248333e-09, 1, -7.486587e-09, 0.087538496, 7.1228996e-09, 0.99616444, -0.7897248, -0.3312149, -0.09495416)
 shape = SubResource("BoxShape3D_jyhfs")
 debug_color = Color(0.0006216452, 0.0048213117, 1.8801075e-10, 1)
+
+[node name="Root" parent="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=581736911 instance=ExtResource("6_3p570")]
+transform = Transform3D(2.8607469, 0.17436847, 1.3103949e-08, -5.006216e-09, -1.3024243e-07, 2.749995, 0.18233907, -2.7356925, -1.3008807e-07, -1.205754, -2.6096423, -0.018305898)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PivotArmario/Armario/PivotPuertaIzquierda/InputPuertaIzquierda" unique_id=770224267]
+transform = Transform3D(-0.57105947, 0.058300134, 7.3097695e-10, -1.5221218e-09, -3.803543e-08, -2.0146708, -0.033917196, -0.9815906, 7.8109416e-08, -0.8045571, -0.2898271, -0.025233954)
+mesh = SubResource("PlaneMesh_mo7bd")
+surface_material_override/0 = SubResource("StandardMaterial3D_3p570")
 
 [node name="UVLightIzqSup" type="OmniLight3D" parent="PivotArmario/Armario" unique_id=1960523286]
 transform = Transform3D(1, -7.2256004e-20, 2.728485e-11, 7.225626e-20, 1, -9.47391e-15, -2.728485e-11, 9.47391e-15, 1, 0.049539804, 1.4591436, -0.59131026)
@@ -129,14 +138,14 @@ transform = Transform3D(-4.3746695e-08, -0.9999999, 1.4658413e-16, -4.3711374e-0
 transform = Transform3D(-4.3670298e-08, 0.9999999, 1.4658413e-16, 4.3711374e-08, 1.9107579e-15, 0.99999976, 1, 4.3677574e-08, -4.371138e-08, 0.6095939, 0.9123821, -0.57087415)
 
 [node name="AditivosLabel" type="Label3D" parent="PivotArmario/Armario" unique_id=1047607798]
-transform = Transform3D(1.7444609e-05, 1.3670197e-20, 0.33333322, 1.2604825e-24, 0.33333325, 2.4085415e-20, -0.33333325, 1.578983e-15, 1.744461e-05, 0.6192704, 0.53032845, -0.5517568)
+transform = Transform3D(1.7444605e-05, 1.3670205e-20, 0.33333325, 1.2604826e-24, 0.33333325, 2.4085417e-20, -0.33333325, 1.5789829e-15, 1.7444607e-05, 0.6192722, 0.53032845, -0.5823725)
 text = "ADITIVOS"
 font = ExtResource("10_ss8qx")
 font_size = 15
 outline_size = 0
 
 [node name="NumeringLabel" type="Label3D" parent="PivotArmario/Armario" unique_id=1280116017]
-transform = Transform3D(1.7444609e-05, 1.3670197e-20, 0.33333322, 1.2604825e-24, 0.33333325, 2.4085415e-20, -0.33333325, 1.578983e-15, 1.744461e-05, 0.6206202, 0.48321545, -0.547754)
+transform = Transform3D(1.74446e-05, 1.3670205e-20, 0.33333325, 1.2604826e-24, 0.33333325, 2.4085417e-20, -0.33333325, 1.5789829e-15, 1.7444601e-05, 0.62322587, 0.48473078, -0.57878304)
 text = "   1         2         3        4"
 font = ExtResource("10_ss8qx")
 font_size = 16
@@ -155,11 +164,13 @@ transform = Transform3D(-0.99074787, -0.060252648, 0.12160718, -3.7628688e-08, 0
 environment = SubResource("Environment_a8y0u")
 
 [node name="CamaraPivot" type="Node3D" parent="." unique_id=1215848847]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9333777, 2.8523855, -1.303116)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9333777, 2.5494952, -1.303116)
 script = ExtResource("11_v3c7d")
+zoom_speed = 10.0
 
 [node name="Camera3D" type="Camera3D" parent="CamaraPivot" unique_id=1909915838]
 transform = Transform3D(0.999992, -0.0004494694, 0.0039714393, 0, 0.9936566, 0.11245752, -0.0039967927, -0.11245663, 0.9936486, -0.045669317, 0.21685076, 4.034963)
+visible = false
 fov = 92.81249
 
 [connection signal="input_event" from="PivotArmario/Armario/PivotPuertaDerecha/InputPuertaDerecha" to="PivotArmario/Armario/PivotPuertaDerecha" method="_on_input_puerta_derecha_input_event"]

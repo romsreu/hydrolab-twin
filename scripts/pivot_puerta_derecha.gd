@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var open_angle: float = -110
+@export var open_angle: float = 110
 @export var duration: float = 0.5
 
 var is_open: bool = false
@@ -14,7 +14,7 @@ func _open_door() -> void:
 	is_open = !is_open
 	var target = closed_rotation
 	if is_open:
-		target.x = closed_rotation.x + deg_to_rad(open_angle)
+		target.y = closed_rotation.y + deg_to_rad(open_angle)
 
 	if tween:
 		tween.kill()

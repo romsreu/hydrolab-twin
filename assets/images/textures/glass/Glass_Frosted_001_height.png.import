@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs7pvrkpny3s4"
-path.s3tc="res://.godot/imported/Metal061A_1K-JPG_NormalGL.jpg-adf1f32374bb59379701162bdb15417c.s3tc.ctex"
-path.etc2="res://.godot/imported/Metal061A_1K-JPG_NormalGL.jpg-adf1f32374bb59379701162bdb15417c.etc2.ctex"
+uid="uid://b788l07jxdwn0"
+path.s3tc="res://.godot/imported/Glass_Frosted_001_height.png-12b93f80f1fc4e147ab096a44326d159.s3tc.ctex"
+path.etc2="res://.godot/imported/Glass_Frosted_001_height.png-12b93f80f1fc4e147ab096a44326d159.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/textures/metal/Metal061A_1K-JPG_NormalGL.jpg"
-dest_files=["res://.godot/imported/Metal061A_1K-JPG_NormalGL.jpg-adf1f32374bb59379701162bdb15417c.s3tc.ctex", "res://.godot/imported/Metal061A_1K-JPG_NormalGL.jpg-adf1f32374bb59379701162bdb15417c.etc2.ctex"]
+source_file="res://assets/images/textures/glass/Glass_Frosted_001_height.png"
+dest_files=["res://.godot/imported/Glass_Frosted_001_height.png-12b93f80f1fc4e147ab096a44326d159.s3tc.ctex", "res://.godot/imported/Glass_Frosted_001_height.png-12b93f80f1fc4e147ab096a44326d159.etc2.ctex"]
 
 [params]
 
@@ -23,12 +23,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://assets/images/textures/metal/Metal061A_1K-JPG_NormalGL.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
