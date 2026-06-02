@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d3ja3cufngdoi" path="res://scenes/3d/dht22/root_dht22.tscn" id="15_2tsw6"]
 [ext_resource type="PackedScene" uid="uid://dkog83m07ljax" path="res://scenes/3d/rs942/root_rs942.tscn" id="16_0rbkm"]
 [ext_resource type="Script" uid="uid://bguoue80ef1s3" path="res://scripts/camara_pivot.gd" id="16_4frjy"]
+[ext_resource type="Texture2D" uid="uid://dx2od6g8nbrqy" path="res://assets/images/textures/hdr/lilienstein_2k.hdr" id="18_jlph5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbgi4"]
 size = Vector3(1.13403, 4.5527687, 0.1340332)
@@ -42,20 +43,27 @@ refraction_scale = 1.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_jyhfs"]
 size = Vector3(1.3150735, 4.5861664, 0.15991211)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8s61l"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_miwuy"]
+panorama = ExtResource("18_jlph5")
+energy_multiplier = 1.6
 
-[sub_resource type="Sky" id="Sky_kjouj"]
-sky_material = SubResource("ProceduralSkyMaterial_8s61l")
+[sub_resource type="Sky" id="Sky_s8hey"]
+sky_material = SubResource("PanoramaSkyMaterial_miwuy")
 
 [sub_resource type="Environment" id="Environment_a8y0u"]
 background_mode = 2
-sky = SubResource("Sky_kjouj")
+background_energy_multiplier = 1.1
+sky = SubResource("Sky_s8hey")
+ambient_light_source = 3
+ambient_light_color = Color(5.7130203, 5.7130203, 5.7130203, 1)
+ambient_light_energy = 1.1
+tonemap_exposure = 1.1
 
 [node name="Main" type="Node3D" unique_id=1631033161]
 script = ExtResource("1_ceew7")
 
 [node name="PivotArmario" type="Node3D" parent="." unique_id=248595810]
-transform = Transform3D(1.0000001, 0, 5.237758e-05, 0, 1, 0, -5.237758e-05, 0, 1.0000001, 1.9094858, 2.9283047, -1.3726668)
+transform = Transform3D(1.0000001, 0, 5.237758e-05, 0, 1, 0, -5.237758e-05, 0, 1.0000001, 1.9094858, 2.63069, -1.3726668)
 
 [node name="Armario" parent="PivotArmario" unique_id=1566148049 instance=ExtResource("2_0rbkm")]
 transform = Transform3D(3.0000007, -1.2303159e-19, -5.820766e-11, -2.1676888e-19, 3.0000007, 0, 7.2759576e-11, -1.4210853e-14, 3.0000002, -0.5316032, -2.5512729, 1.8939168)
@@ -267,7 +275,7 @@ light_color = Color(1, 0, 1, 1)
 transform = Transform3D(0.00527814, 0.34782103, 0.83005613, -0.23101225, 0.8027826, -0.334923, -0.8698306, -0.21109483, 0.09398664, 0.5481891, 1.2149968, -0.77462125)
 
 [node name="Sketchfab_Scene2" parent="PivotArmario/Armario/DHT22" unique_id=1671540171 instance=ExtResource("15_2tsw6")]
-transform = Transform3D(0.00527818, 0.34782106, 0.8300559, -0.23101225, 0.80278236, -0.33492348, -0.8698306, -0.21109478, 0.09398682, 0.55661994, 1.5978153, -0.68035954)
+transform = Transform3D(0.0052781804, 0.3478211, 0.8300559, -0.23101225, 0.80278236, -0.33492348, -0.8698306, -0.21109478, 0.09398682, 0.5566197, 1.5978153, -0.6739509)
 
 [node name="rs942" parent="PivotArmario/Armario" unique_id=1705746589 instance=ExtResource("16_0rbkm")]
 transform = Transform3D(4.371139e-08, 6.602206e-15, 1.0000011, 1.509958e-07, -1, 1.9698103e-18, 1, 1.509958e-07, -4.3711434e-08, -0.08295232, 0, -0.68406236)

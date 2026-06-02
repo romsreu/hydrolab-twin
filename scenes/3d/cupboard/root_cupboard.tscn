@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d6yfuwu1aahq" path="res://assets/3d/cupboard/hydro_virtualization_v1.gltf" id="1_xpmwg"]
 [ext_resource type="Texture2D" uid="uid://cvctsso2r47sa" path="res://assets/images/textures/plastic2/Plastic010_1K-JPG_Color.jpg" id="2_j3ky7"]
+[ext_resource type="Script" uid="uid://cmxvsrfpy11jm" path="res://scripts/root_cupboard.gd" id="2_l8h1e"]
 [ext_resource type="Texture2D" uid="uid://cpje565auqdvi" path="res://assets/images/textures/metal3/Metal049A_1K-JPG_Color.jpg" id="2_t5tqc"]
 [ext_resource type="Texture2D" uid="uid://lgniim3f145v" path="res://assets/images/textures/metal3/Metal049A_1K-JPG_Metalness.jpg" id="3_fitfq"]
 [ext_resource type="Texture2D" uid="uid://d0411uiit8ue1" path="res://assets/images/textures/plastic2/Plastic010_1K-JPG_NormalGL.jpg" id="3_lv4oe"]
@@ -37,7 +38,8 @@ normal_enabled = true
 normal_texture = ExtResource("6_pm4av")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5tqc"]
-albedo_color = Color(0.9761614, 0.55126065, 0.1809321, 1)
+transparency = 1
+albedo_color = Color(1.2900499, 0.74008065, 0.25010794, 1)
 albedo_texture = ExtResource("2_j3ky7")
 roughness_texture = ExtResource("4_6d4yh")
 normal_enabled = true
@@ -5699,6 +5701,13 @@ roughness_texture = ExtResource("5_ir68d")
 normal_enabled = true
 normal_texture = ExtResource("4_fcmyb")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8h1e"]
+transparency = 1
+albedo_texture = ExtResource("2_j3ky7")
+roughness_texture = ExtResource("4_6d4yh")
+normal_enabled = true
+normal_texture = ExtResource("3_lv4oe")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ue1lu"]
 albedo_color = Color(0.46079057, 0.40959725, 0.33428982, 1)
 albedo_texture = ExtResource("12_t5tqc")
@@ -5710,11 +5719,12 @@ normal_enabled = true
 normal_texture = ExtResource("14_fcmyb")
 
 [node name="Root" unique_id=1566148049 instance=ExtResource("1_xpmwg")]
+script = ExtResource("2_l8h1e")
 
-[node name="Sistema" parent="." index="0" unique_id=1771082067]
+[node name="Sistema" parent="." index="0" unique_id=1044146981]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
-[node name="Part 1" parent="Sistema/occurrence of Part 1" parent_id_path=PackedInt32Array(1511694700) index="0" unique_id=601538309]
+[node name="Part 1" parent="Sistema/occurrence of Part 1" parent_id_path=PackedInt32Array(1895309143) index="0" unique_id=108932040]
 surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
@@ -5740,7 +5750,7 @@ surface_material_override/21 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/22 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/23 = SubResource("StandardMaterial3D_qe4q7")
 
-[node name="Part 12" parent="Sistema/occurrence of Part 12" parent_id_path=PackedInt32Array(875431730) index="0" unique_id=624168937]
+[node name="Part 12" parent="Sistema/occurrence of Part 12" parent_id_path=PackedInt32Array(2096999312) index="0" unique_id=1645942913]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -5751,7 +5761,7 @@ surface_material_override/6 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/7 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/8 = SubResource("StandardMaterial3D_lgq6l")
 
-[node name="Part 17" parent="Sistema/occurrence of Part 17" parent_id_path=PackedInt32Array(1644148205) index="0" unique_id=1265296620]
+[node name="Part 17" parent="Sistema/occurrence of Part 17" parent_id_path=PackedInt32Array(2017232447) index="0" unique_id=387207147]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -5794,7 +5804,7 @@ surface_material_override/38 = SubResource("StandardMaterial3D_t5tqc")
 surface_material_override/39 = SubResource("StandardMaterial3D_t5tqc")
 surface_material_override/40 = SubResource("StandardMaterial3D_t5tqc")
 
-[node name="Part 18" parent="Sistema/occurrence of Part 18" parent_id_path=PackedInt32Array(961134922) index="0" unique_id=1131458132]
+[node name="Part 18" parent="Sistema/occurrence of Part 18" parent_id_path=PackedInt32Array(347164873) index="0" unique_id=1414829265]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -5802,7 +5812,7 @@ surface_material_override/3 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/4 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/5 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 19" parent="Sistema/occurrence of Part 19" parent_id_path=PackedInt32Array(312284589) index="0" unique_id=1691662292]
+[node name="Part 19" parent="Sistema/occurrence of Part 19" parent_id_path=PackedInt32Array(1020097432) index="0" unique_id=1589140861]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -5812,7 +5822,7 @@ surface_material_override/5 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/6 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/7 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 110" parent="Sistema/occurrence of Part 110" parent_id_path=PackedInt32Array(197140875) index="0" unique_id=1699002841]
+[node name="Part 110" parent="Sistema/occurrence of Part 110" parent_id_path=PackedInt32Array(424904805) index="0" unique_id=1345260443]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -5837,7 +5847,7 @@ surface_material_override/21 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/22 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/23 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 111" parent="Sistema/occurrence of Part 111" parent_id_path=PackedInt32Array(269193985) index="0" unique_id=321467050]
+[node name="Part 111" parent="Sistema/occurrence of Part 111" parent_id_path=PackedInt32Array(1735690604) index="0" unique_id=1458575619]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -5845,7 +5855,7 @@ surface_material_override/3 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/4 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/5 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 112" parent="Sistema/occurrence of Part 112" parent_id_path=PackedInt32Array(451683995) index="0" unique_id=1447996770]
+[node name="Part 112" parent="Sistema/occurrence of Part 112" parent_id_path=PackedInt32Array(1237117295) index="0" unique_id=717582855]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -5855,19 +5865,19 @@ surface_material_override/5 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/6 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/7 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 113" parent="Sistema/occurrence of Part 113" parent_id_path=PackedInt32Array(2047129862) index="0" unique_id=233687203]
+[node name="Part 113" parent="Sistema/occurrence of Part 113" parent_id_path=PackedInt32Array(161801880) index="0" unique_id=511648826]
 surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/3 = SubResource("StandardMaterial3D_qe4q7")
 
-[node name="Part 114" parent="Sistema/occurrence of Part 114" parent_id_path=PackedInt32Array(237861364) index="0" unique_id=1251364401]
+[node name="Part 114" parent="Sistema/occurrence of Part 114" parent_id_path=PackedInt32Array(339555107) index="0" unique_id=29329370]
 surface_material_override/8 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/9 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/10 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/11 = SubResource("StandardMaterial3D_lgq6l")
 
-[node name="Part 118" type="MeshInstance3D" parent="Sistema/occurrence of Part 115" parent_id_path=PackedInt32Array(521560898) index="0" unique_id=442886175]
+[node name="Part 118" type="MeshInstance3D" parent="Sistema/occurrence of Part 115" parent_id_path=PackedInt32Array(1920049787) index="0" unique_id=442886175]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004792273, 0.0012121797, 0)
 mesh = SubResource("ArrayMesh_fqyln")
 surface_material_override/0 = SubResource("StandardMaterial3D_fitfq")
@@ -6127,16 +6137,16 @@ surface_material_override/253 = SubResource("StandardMaterial3D_fitfq")
 surface_material_override/254 = SubResource("StandardMaterial3D_fitfq")
 surface_material_override/255 = SubResource("StandardMaterial3D_fitfq")
 
-[node name="Part 115" parent="Sistema/occurrence of Part 115" parent_id_path=PackedInt32Array(521560898) index="1" unique_id=824774883]
+[node name="Part 115" parent="Sistema/occurrence of Part 115" parent_id_path=PackedInt32Array(1920049787) index="1" unique_id=68574259]
 visible = false
 
-[node name="Part 116" parent="Sistema/occurrence of Part 116" parent_id_path=PackedInt32Array(2044926023) index="0" unique_id=1996551187]
+[node name="Part 116" parent="Sistema/occurrence of Part 116" parent_id_path=PackedInt32Array(219715943) index="0" unique_id=978645711]
 surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/3 = SubResource("StandardMaterial3D_qe4q7")
 
-[node name="Part 118" parent="Sistema/occurrence of Part 118" parent_id_path=PackedInt32Array(812930891) index="0" unique_id=552217366]
+[node name="Part 118" parent="Sistema/occurrence of Part 118" parent_id_path=PackedInt32Array(1582369846) index="0" unique_id=826741578]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0051110834, 0.0037103295, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_fitfq")
 surface_material_override/1 = SubResource("StandardMaterial3D_fitfq")
@@ -6395,70 +6405,71 @@ surface_material_override/253 = SubResource("StandardMaterial3D_fitfq")
 surface_material_override/254 = SubResource("StandardMaterial3D_fitfq")
 surface_material_override/255 = SubResource("StandardMaterial3D_fitfq")
 
-[node name="Part 119" parent="Sistema/occurrence of Part 119" parent_id_path=PackedInt32Array(495586311) index="0" unique_id=280892173]
+[node name="Part 119" parent="Sistema/occurrence of Part 119" parent_id_path=PackedInt32Array(1942927537) index="0" unique_id=586071959]
 surface_material_override/0 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/1 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/2 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/3 = SubResource("StandardMaterial3D_lgq6l")
-surface_material_override/4 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/4 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/5 = SubResource("StandardMaterial3D_l8h1e")
 surface_material_override/6 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/7 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/8 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/9 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/10 = SubResource("StandardMaterial3D_lgq6l")
-surface_material_override/11 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/12 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/13 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/14 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/15 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/16 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/17 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/18 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/11 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/12 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/13 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/14 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/15 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/16 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/17 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/18 = SubResource("StandardMaterial3D_l8h1e")
 surface_material_override/19 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/20 = SubResource("StandardMaterial3D_lgq6l")
-surface_material_override/21 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/21 = SubResource("StandardMaterial3D_l8h1e")
 surface_material_override/22 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/23 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/24 = SubResource("StandardMaterial3D_lgq6l")
-surface_material_override/25 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/25 = SubResource("StandardMaterial3D_l8h1e")
 surface_material_override/26 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/27 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/28 = SubResource("StandardMaterial3D_lgq6l")
-surface_material_override/29 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/30 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/31 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/32 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/33 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/34 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/35 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/36 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/37 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/29 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/30 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/31 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/32 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/33 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/34 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/35 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/36 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/37 = SubResource("StandardMaterial3D_l8h1e")
 surface_material_override/38 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/39 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/40 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/41 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/42 = SubResource("StandardMaterial3D_lgq6l")
-surface_material_override/43 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/44 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/45 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/46 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/47 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/48 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/49 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/50 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/51 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/52 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/53 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/54 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/55 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/43 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/44 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/45 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/46 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/47 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/48 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/49 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/50 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/51 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/52 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/53 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/54 = SubResource("StandardMaterial3D_l8h1e")
+surface_material_override/55 = SubResource("StandardMaterial3D_l8h1e")
 
-[node name="Part 121" parent="Sistema/occurrence of Part 121" parent_id_path=PackedInt32Array(964984146) index="0" unique_id=1077136287]
+[node name="Part 121" parent="Sistema/occurrence of Part 121" parent_id_path=PackedInt32Array(729085490) index="0" unique_id=90604445]
 surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/3 = SubResource("StandardMaterial3D_qe4q7")
 
-[node name="Part 122" parent="Sistema/occurrence of Part 122" parent_id_path=PackedInt32Array(1149935018) index="0" unique_id=436374429]
+[node name="Part 122" parent="Sistema/occurrence of Part 122" parent_id_path=PackedInt32Array(2037403199) index="0" unique_id=1943525650]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6468,13 +6479,13 @@ surface_material_override/5 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/6 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/7 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 124" parent="Sistema/occurrence of Part 124" parent_id_path=PackedInt32Array(974225433) index="0" unique_id=435861320]
+[node name="Part 124" parent="Sistema/occurrence of Part 124" parent_id_path=PackedInt32Array(1421539873) index="0" unique_id=1917415269]
 surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/3 = SubResource("StandardMaterial3D_qe4q7")
 
-[node name="Part 127" parent="Sistema/occurrence of Part 127" parent_id_path=PackedInt32Array(639874622) index="0" unique_id=1422640361]
+[node name="Part 127" parent="Sistema/occurrence of Part 127" parent_id_path=PackedInt32Array(1619009393) index="0" unique_id=629654003]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6499,19 +6510,19 @@ surface_material_override/21 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/22 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/23 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 132" parent="Sistema/occurrence of Part 132" parent_id_path=PackedInt32Array(1710313389) index="0" unique_id=618460508]
+[node name="Part 132" parent="Sistema/occurrence of Part 132" parent_id_path=PackedInt32Array(747295069) index="0" unique_id=1963098887]
 surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/3 = SubResource("StandardMaterial3D_qe4q7")
 
-[node name="Part 133" parent="Sistema/occurrence of Part 133" parent_id_path=PackedInt32Array(1495192554) index="0" unique_id=1227788805]
+[node name="Part 133" parent="Sistema/occurrence of Part 133" parent_id_path=PackedInt32Array(1210676112) index="0" unique_id=1465002145]
 surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/3 = SubResource("StandardMaterial3D_qe4q7")
 
-[node name="Part 2" parent="Sistema/occurrence of Part 2" parent_id_path=PackedInt32Array(1241827272) index="0" unique_id=194386589]
+[node name="Part 2" parent="Sistema/occurrence of Part 2" parent_id_path=PackedInt32Array(1513434519) index="0" unique_id=742368860]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6532,13 +6543,13 @@ surface_material_override/16 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/17 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/18 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 134" parent="Sistema/occurrence of Part 134" parent_id_path=PackedInt32Array(1187243896) index="0" unique_id=244387761]
+[node name="Part 134" parent="Sistema/occurrence of Part 134" parent_id_path=PackedInt32Array(301356950) index="0" unique_id=1312044728]
 surface_material_override/8 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/9 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/10 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/11 = SubResource("StandardMaterial3D_lgq6l")
 
-[node name="Part 136" parent="Sistema/occurrence of Part 136" parent_id_path=PackedInt32Array(1372316057) index="0" unique_id=406367365]
+[node name="Part 136" parent="Sistema/occurrence of Part 136" parent_id_path=PackedInt32Array(1336947923) index="0" unique_id=1993725166]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6548,7 +6559,7 @@ surface_material_override/5 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/6 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/7 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 22" parent="Sistema/occurrence of Part 22" parent_id_path=PackedInt32Array(1050629564) index="0" unique_id=708151598]
+[node name="Part 22" parent="Sistema/occurrence of Part 22" parent_id_path=PackedInt32Array(1426918451) index="0" unique_id=2112850693]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6569,7 +6580,7 @@ surface_material_override/16 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/17 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/18 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 137" parent="Sistema/occurrence of Part 137" parent_id_path=PackedInt32Array(696218900) index="0" unique_id=1350861944]
+[node name="Part 137" parent="Sistema/occurrence of Part 137" parent_id_path=PackedInt32Array(571702311) index="0" unique_id=77313941]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6594,7 +6605,7 @@ surface_material_override/21 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/22 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/23 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 139" parent="Sistema/occurrence of Part 139" parent_id_path=PackedInt32Array(377047107) index="0" unique_id=114014260]
+[node name="Part 139" parent="Sistema/occurrence of Part 139" parent_id_path=PackedInt32Array(566169751) index="0" unique_id=1457059303]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6615,7 +6626,7 @@ surface_material_override/16 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/17 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/18 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 140" parent="Sistema/occurrence of Part 140" parent_id_path=PackedInt32Array(558827233) index="0" unique_id=293960534]
+[node name="Part 140" parent="Sistema/occurrence of Part 140" parent_id_path=PackedInt32Array(1927917325) index="0" unique_id=1352165506]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6640,7 +6651,7 @@ surface_material_override/21 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/22 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/23 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 3" parent="Sistema/occurrence of Part 3" parent_id_path=PackedInt32Array(40043205) index="0" unique_id=1307784981]
+[node name="Part 3" parent="Sistema/occurrence of Part 3" parent_id_path=PackedInt32Array(1762720492) index="0" unique_id=1390532366]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6661,7 +6672,7 @@ surface_material_override/16 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/17 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/18 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 142" parent="Sistema/occurrence of Part 142" parent_id_path=PackedInt32Array(1368122969) index="0" unique_id=787597937]
+[node name="Part 142" parent="Sistema/occurrence of Part 142" parent_id_path=PackedInt32Array(1938537296) index="0" unique_id=389446590]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6671,13 +6682,13 @@ surface_material_override/5 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/6 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/7 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 143" parent="Sistema/occurrence of Part 143" parent_id_path=PackedInt32Array(160547169) index="0" unique_id=815192857]
+[node name="Part 143" parent="Sistema/occurrence of Part 143" parent_id_path=PackedInt32Array(1942645034) index="0" unique_id=891082809]
 surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/3 = SubResource("StandardMaterial3D_qe4q7")
 
-[node name="Part 145" parent="Sistema/occurrence of Part 145" parent_id_path=PackedInt32Array(1722186625) index="0" unique_id=410608819]
+[node name="Part 145" parent="Sistema/occurrence of Part 145" parent_id_path=PackedInt32Array(494476762) index="0" unique_id=1555196687]
 surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
@@ -6701,7 +6712,7 @@ surface_material_override/19 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/20 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/21 = SubResource("StandardMaterial3D_qe4q7")
 
-[node name="Part 147" parent="Sistema/occurrence of Part 147" parent_id_path=PackedInt32Array(1277284113) index="0" unique_id=1401327076]
+[node name="Part 147" parent="Sistema/occurrence of Part 147" parent_id_path=PackedInt32Array(859087717) index="0" unique_id=196499163]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6709,28 +6720,7 @@ surface_material_override/3 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/4 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/5 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 149" parent="Sistema/occurrence of Part 149" parent_id_path=PackedInt32Array(1204728965) index="0" unique_id=670711379]
-surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/3 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/4 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/5 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/6 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/7 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/8 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/9 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/10 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/11 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/12 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/13 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/14 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/15 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/16 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/17 = SubResource("StandardMaterial3D_stwjr")
-surface_material_override/18 = SubResource("StandardMaterial3D_stwjr")
-
-[node name="Part 32" parent="Sistema/occurrence of Part 32" parent_id_path=PackedInt32Array(224739457) index="0" unique_id=1695289410]
+[node name="Part 149" parent="Sistema/occurrence of Part 149" parent_id_path=PackedInt32Array(469896786) index="0" unique_id=1864004016]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6751,7 +6741,28 @@ surface_material_override/16 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/17 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/18 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 151" parent="Sistema/occurrence of Part 151" parent_id_path=PackedInt32Array(1424057320) index="0" unique_id=287270384]
+[node name="Part 32" parent="Sistema/occurrence of Part 32" parent_id_path=PackedInt32Array(1100322927) index="0" unique_id=862708891]
+surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/3 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/4 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/5 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/6 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/7 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/8 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/9 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/10 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/11 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/12 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/13 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/14 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/15 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/16 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/17 = SubResource("StandardMaterial3D_stwjr")
+surface_material_override/18 = SubResource("StandardMaterial3D_stwjr")
+
+[node name="Part 151" parent="Sistema/occurrence of Part 151" parent_id_path=PackedInt32Array(755508111) index="0" unique_id=829068814]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6761,19 +6772,19 @@ surface_material_override/5 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/6 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/7 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 152" parent="Sistema/occurrence of Part 152" parent_id_path=PackedInt32Array(184778767) index="0" unique_id=446225911]
+[node name="Part 152" parent="Sistema/occurrence of Part 152" parent_id_path=PackedInt32Array(895527905) index="0" unique_id=528068060]
 surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/3 = SubResource("StandardMaterial3D_qe4q7")
 
-[node name="Part 158" parent="Sistema/occurrence of Part 158" parent_id_path=PackedInt32Array(1199411937) index="0" unique_id=1199708122]
+[node name="Part 158" parent="Sistema/occurrence of Part 158" parent_id_path=PackedInt32Array(1480944681) index="0" unique_id=812228024]
 surface_material_override/8 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/9 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/10 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/11 = SubResource("StandardMaterial3D_lgq6l")
 
-[node name="Part 159" parent="Sistema/occurrence of Part 159" parent_id_path=PackedInt32Array(872647520) index="0" unique_id=934310052]
+[node name="Part 159" parent="Sistema/occurrence of Part 159" parent_id_path=PackedInt32Array(1613438837) index="0" unique_id=634434030]
 surface_material_override/0 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/1 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/2 = SubResource("StandardMaterial3D_stwjr")
@@ -6798,33 +6809,7 @@ surface_material_override/21 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/22 = SubResource("StandardMaterial3D_stwjr")
 surface_material_override/23 = SubResource("StandardMaterial3D_stwjr")
 
-[node name="Part 160" parent="Sistema/occurrence of Part 160" parent_id_path=PackedInt32Array(1877037668) index="0" unique_id=1266642236]
-surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/3 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/4 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/5 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/6 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/7 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/8 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/9 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/10 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/11 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/12 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/13 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/14 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/15 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/16 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/17 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/18 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/19 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/20 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/21 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/22 = SubResource("StandardMaterial3D_qe4q7")
-surface_material_override/23 = SubResource("StandardMaterial3D_qe4q7")
-
-[node name="Part 161" parent="Sistema/occurrence of Part 161" parent_id_path=PackedInt32Array(327581981) index="0" unique_id=336484187]
+[node name="Part 160" parent="Sistema/occurrence of Part 160" parent_id_path=PackedInt32Array(412148028) index="0" unique_id=15728687]
 surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
@@ -6850,13 +6835,39 @@ surface_material_override/21 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/22 = SubResource("StandardMaterial3D_qe4q7")
 surface_material_override/23 = SubResource("StandardMaterial3D_qe4q7")
 
-[node name="Part 165" parent="Sistema/occurrence of Part 165" parent_id_path=PackedInt32Array(1446532473) index="0" unique_id=745563075]
+[node name="Part 161" parent="Sistema/occurrence of Part 161" parent_id_path=PackedInt32Array(774104008) index="0" unique_id=870700064]
+surface_material_override/0 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/1 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/2 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/3 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/4 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/5 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/6 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/7 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/8 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/9 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/10 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/11 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/12 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/13 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/14 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/15 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/16 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/17 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/18 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/19 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/20 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/21 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/22 = SubResource("StandardMaterial3D_qe4q7")
+surface_material_override/23 = SubResource("StandardMaterial3D_qe4q7")
+
+[node name="Part 165" parent="Sistema/occurrence of Part 165" parent_id_path=PackedInt32Array(1444951401) index="0" unique_id=123153432]
 surface_material_override/8 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/9 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/10 = SubResource("StandardMaterial3D_lgq6l")
 surface_material_override/11 = SubResource("StandardMaterial3D_lgq6l")
 
-[node name="Part 166" parent="Sistema/occurrence of Part 166" parent_id_path=PackedInt32Array(1303416015) index="0" unique_id=2048039986]
+[node name="Part 166" parent="Sistema/occurrence of Part 166" parent_id_path=PackedInt32Array(62520025) index="0" unique_id=194097060]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00014576316, -7.7843666e-05, 0.00053560734)
 surface_material_override/0 = SubResource("StandardMaterial3D_ue1lu")
 surface_material_override/1 = SubResource("StandardMaterial3D_ue1lu")
